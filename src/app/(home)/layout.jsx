@@ -19,7 +19,7 @@ const Layout = ({children}) => {
    },[])
 
 	return (
-      <div className="darktheme flex flex-row-reverse w-screen overflow-hidden ">
+      <div className=" flex flex-row-reverse w-screen overflow-hidden ">
          <header className=" flex justify-center items-center flex-col gap-3 p-5 relative">
             <ThemeToggler className="absolute top-[2rem] bg-gray-600 "/>
             <Link style={{'border':`${primaryColor} 1px solid`}} className="p-2 rounded-full w-16 h-16 flex items-center justify-center" href={"#"}>home</Link>
