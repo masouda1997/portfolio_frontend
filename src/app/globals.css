@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.darkTheme {
+  @apply bg-[#111] text-white; 
+}
+
+.lightTheme {
+  @apply bg-white text-black; 
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
