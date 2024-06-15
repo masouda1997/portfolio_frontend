@@ -3,8 +3,7 @@ import ColorSwitcher from '@/components/ColorSwitcher';
 import '../globals.css'
 import Link from "next/link";
 import { GrFormNextLink } from "react-icons/gr";
-import { useEffect, useState } from 'react';
-import Layout from './layout';
+import { useState } from 'react';
 
 
 const Home = () => {
@@ -25,7 +24,7 @@ const Home = () => {
 					<div className=" h-max p-1 w-[32rem]">
 						<h1 className="uppercase flex flex-col font-bold text-[3rem]">
 							{" "}
-							I'm Masoud Anaraki.{" "}
+							Im Masoud Anaraki.{" "}
 							<span style={{"color":`${primaryColor}`}}>
 								Front-end developer
 							</span>{" "}
