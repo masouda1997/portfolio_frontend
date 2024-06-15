@@ -16,6 +16,9 @@ module.exports = {
 					to: { transform: "translateX(0)" },
 				},
 			},
+		colors:{
+			primary:"#f72b1c"
+		}
 		},
 	},
 	plugins: [],
