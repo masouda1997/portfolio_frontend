@@ -5,6 +5,12 @@
 
 .darkTheme {
   @apply bg-[#111] text-white; 
+  /* button{
+    @apply bg-[#2b2a2a]
+  } */
+}
+.darkTheme button {
+  background-color: #2b2a2a 
 }
 
 
