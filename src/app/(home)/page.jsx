@@ -29,7 +29,7 @@ const Home = () => {
 								Front-end developer
 							</span>{" "}
 						</h1>
-						<p className="">
+						<p>
 							Lorem ipsum dolor sit amet consectetur, adipisicing elit.
 							Odit quos sapiente ut, delectus iusto fugit dolorem,
 							voluptates laborum nam velit doloribus adipisci. Quae, illo
@@ -42,10 +42,10 @@ const Home = () => {
 						</Link>
 
 						<div className='absolute top'></div>
-						<ColorSwitcher color={primaryColor}/>
 
 					</div>
 				</div>
+						<ColorSwitcher color={primaryColor}/>
 			</sectoin>
 		</section>
 	);

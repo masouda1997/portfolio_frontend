@@ -14,7 +14,7 @@ const ColorSwitcher = ({color}) => {
    
 
    return (
-		<div className="color-switcher">
+		<div className="color-switcher absolute">
 			<input
 				type="color"
 				id="primary-color"
