@@ -71,12 +71,8 @@ const Menu = () => {
 			</li>
 			<li
 				className="flex items-center justify-center self-end "
-				onMouseEnter={() =>
-					setMenuHover((prev) => ({ ...prev, contact: true }))
-				}
-				onMouseLeave={() =>
-					setMenuHover((prev) => ({ ...prev, contact: false }))
-				}
+				onMouseEnter={() =>setMenuHover((prev) => ({ ...prev, contact: true }))}
+				onMouseLeave={() =>setMenuHover((prev) => ({ ...prev, contact: false }))}
 			>
 				<Link
 					style={{ border: `${primaryColor} 1px solid` }}
