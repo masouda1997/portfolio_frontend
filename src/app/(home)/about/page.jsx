@@ -4,6 +4,9 @@ import PageTitle from "@/components/PageTitle";
 import PrimaryLink from "@/components/PrimaryLink";
 import { useState } from "react";
 import { CiImport } from "react-icons/ci";
+import Highcharts from 'highcharts'
+import HighchartsReact from 'highcharts-react-official'
+import NetworkChart from "@/components/Cart";
 
 
 
@@ -54,7 +57,9 @@ const about = () => {
 			<section className="text-center ">
 				<div className="h-0.5 w-1/4 bg-[#252525] m-auto my-16"></div>
 				<h2 className="uppercase tracking-tight font font-extrabold text-3xl">my skills</h2>
-				
+				<section className="bg-transparent border-none ">
+					<NetworkChart nodeColor={primaryColor}/>
+				</section>
 			</section>
 		</section>
 	);
