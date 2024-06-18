@@ -5,14 +5,39 @@
 
 .darkTheme {
   @apply bg-[#111] text-white; 
-  /* button{
-    @apply bg-[#2b2a2a]
-  } */
 }
 .darkTheme button {
   background-color: #2b2a2a 
 }
 
+.dash:before {
+  content: "";
+  display: inline-block;
+  height: 1px;
+  width: 30px;
+  background-color: #bababa;
+  margin-right: 4px; /* Adjust as needed */
+  margin-bottom: 4px;
+}
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+/* .separateLine::after{
+  content: "";
+  width: 20%;
+  height: 2px;
+  background-color: red;
+} */
 
 /* :root {
   --foreground-rgb: 0, 0, 0;

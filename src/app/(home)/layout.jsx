@@ -4,28 +4,7 @@ import ThemeToggler from "@/utilities/ThemeToggler";
 import React, { useLayoutEffect } from "react";
 
 
-// const menuData =  [
-// 		{
-// 			id:1,
-// 			title: "Home",
-// 			link: "/home",
-// 		},
-// 		{
-// 			id:2,
-// 			title: "About",
-// 			link: "/about",
-// 		},
-// 		{
-// 			id:3,
-// 			title: "Portfolio",
-// 			link: "/portfolio",
-// 		},
-// 		{
-// 			id:4,
-// 			title: "Contact",
-// 			link: "/contact",
-// 		},
-// 	]
+// 
 
 
 
@@ -45,7 +24,7 @@ const Layout = ({children}) => {
    },[])
 
 	return (
-		<div className=" flex flex-row-reverse w-screen h-screen overflow-hidden ">
+		<div className=" flex flex-row-reverse w-screen h-screen  ">
 			<header className=" absolute z-30 flex justify-center items-end flex-col gap-3 p-5 h-screen ">
 				<ThemeToggler className="absolute top-[2rem] bg-[#eeeeee] rounded-full transition-all ease-in duration-200 self-end " />
 				<Menu/>

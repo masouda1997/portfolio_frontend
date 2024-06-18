@@ -17,9 +17,12 @@ module.exports = {
 					to: { transform: "translateX(0)" },
 				},
 			},
-		colors:{
-			primary:"#f72b1c"
-		}
+			colors:{
+				primary:"#f72b1c"
+			},
+			underline: {
+				'before': 'content "" block h-px bg-black'
+			},
 		},
 	},
 	plugins: [],
