@@ -8,15 +8,16 @@ highchartsMore(Highcharts);
 solidGauge(Highcharts);
 
 
-const RadialChart = ({ chartColor }) => {
+const RadialChart = ({ chartColor , value, skill }) => {
 	const gaugeOptions = {
 		chart: {
+			credits: false,
 			type: "gauge",
 			plotBackgroundColor: null,
 			plotBackgroundImage: null,
 			plotBorderWidth: null,
-			plotShadow: false,
-			// height: "80%",
+			plotShadow: true,
+			height: "70%",
          backgroundColor:'transparent'
 		},
 
@@ -28,7 +29,7 @@ const RadialChart = ({ chartColor }) => {
 			startAngle: -110,
 			endAngle: 110,
 			background: null,
-			center: ["50%", "75%"],
+			center: ["50%", "50%"],
 			size: "100%",
 		},
 
@@ -51,14 +52,14 @@ const RadialChart = ({ chartColor }) => {
 			plotBands: [
 				{
 					from: 0,
-					to: 35,
+					to: value,
 					color: chartColor, // green
 					thickness: 10,
 					borderRadius: "0",
 				},{
-               from:35,
+               from:value,
                to:100,
-               color:"#252525"
+               color:"#353535"
             }
 				
 			],
@@ -67,12 +68,12 @@ const RadialChart = ({ chartColor }) => {
 		series: [
 			{
 				name: "learned",
-				data: [35],
+				data: [value],
 				tooltip: {
 					valueSuffix: "%",
 				},
 				dataLabels: {
-					format: "{y}%  java",
+					format: `{y}% ${skill}`,
 					borderWidth: 0,
 					// color:
 					// 	(Highcharts.defaultOptions.title &&
@@ -85,9 +86,9 @@ const RadialChart = ({ chartColor }) => {
 				},
 				dial: {
 					radius: "80%",
-					backgroundColor: "gray",
+					backgroundColor: "#353535",
 					baseWidth: 5,
-					baseLength: "0%",
+					baseLength: "1%",
 					rearLength: "0%",
 				},
 				pivot: {
