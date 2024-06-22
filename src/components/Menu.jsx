@@ -90,7 +90,7 @@ const Menu = () => {
 				<Link
 					style={{ border: `${primaryColor} 1px solid` }}
 					className="p-2 rounded-full  flex items-center justify-center self-end"
-					href={"#"}
+					href={"/portfolio"}
 				>
 					{menuHover.portfolio && <span className="pl-3 tracking-tight">PORTFOLIO</span>}
 					<CiFolderOn className="w-8 h-8 p-1" />
