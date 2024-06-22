@@ -18,7 +18,8 @@ module.exports = {
 				},
 			},
 			colors:{
-				primary:"#f72b1c"
+				primary:"#f72b1c",
+				secondary:"#252525"
 			},
 			underline: {
 				'before': 'content "" block h-px bg-black'
