@@ -8,6 +8,10 @@ import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import NetworkChart from "@/components/NetworkCart";
 import RadialChart from "@/components/RadialChart";
+import { FaGraduationCap } from "react-icons/fa";
+import XPcards from "@/components/XPcards";
+import { FaBriefcase } from "react-icons/fa";
+
 
 
 
@@ -65,20 +69,36 @@ const about = () => {
 				<section className="flex justify-center relative ">
 					<button className="absolute top-0 left-0" onClick={()=>setIsRadialChart(!isRadialChart)}>toggle charts</button>
 					{isRadialChart? <section className=" w-4/6 grid grid-cols-4 grid-rows-2"> 
-						<RadialChart chartColor={primaryColor} skill={'javaScript'} value={60} />
-						<RadialChart chartColor={primaryColor} skill={'react.js'} value={70} />
-						<RadialChart chartColor={primaryColor} skill={'next.js'} value={30} />
-						<RadialChart chartColor={primaryColor} skill={'css'} value={70} />
-						<RadialChart chartColor={primaryColor} skill={'html'} value={80} />
-						<RadialChart chartColor={primaryColor} skill={'typeScript'} value={50} />
-						<RadialChart chartColor={primaryColor} skill={'python'} value={40} />
-						<RadialChart chartColor={primaryColor} skill={'tailwind'} value={80} />
+						<RadialChart chartColor={primaryColor} value={60} skill={'javaScript'} />
+						<RadialChart chartColor={primaryColor} value={70} skill={'react.js'} />
+						<RadialChart chartColor={primaryColor} value={30} skill={'next.js'} />
+						<RadialChart chartColor={primaryColor} value={70} skill={'css'} />
+						<RadialChart chartColor={primaryColor} value={80} skill={'html'} />
+						<RadialChart chartColor={primaryColor} value={50} skill={'typeScript'} />
+						<RadialChart chartColor={primaryColor} value={40} skill={'python'} />
+						<RadialChart chartColor={primaryColor} value={80} skill={'tailwind'} />
 					</section> : <NetworkChart nodeColor={primaryColor}/>}
 					
 				</section>
-					<div className="w-full h-40"></div>
+			</section>
+
+
+			<section className="text-center">
+				<div className="h-0.5 w-1/4 bg-[#252525] m-auto my-16"></div>
+				<h2 className="uppercase tracking-tight font font-extrabold text-3xl">experience & education</h2>
+				<section className="flex justify-center relative mt-10">
+					<section className="w-4/6 grid grid-cols-2 grid-rows-2 gap-10 relative">
+						
+						<XPcards title={'front-end developer'} tag={"2023-present"} text={'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto, fuga!'}  icon={<FaBriefcase className="w-10"/>} color={primaryColor} company={'entekhab group'} />
+						<XPcards title={'bachelor degree'} tag={"2015-2019"} text={'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto, fuga!'}  icon={<FaGraduationCap className="w-10"/>} color={primaryColor} company={'quchan university of technology'} />
+						<XPcards title={'Reactjs coding bootcamp'} tag={"2022"} text={'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto, fuga!'}  icon={<FaGraduationCap className="w-10"/>} color={primaryColor} company={'maktab sharif'} />
+					
+					</section>
+				</section>
+				<div className="w-full h-40"></div>
 			</section>
 		</section>
+
 	);
 };
 

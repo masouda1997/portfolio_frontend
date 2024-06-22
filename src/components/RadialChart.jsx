@@ -8,17 +8,26 @@ highchartsMore(Highcharts);
 solidGauge(Highcharts);
 
 
-const RadialChart = ({ chartColor , value, skill }) => {
+const RadialChart = ({ chartColor ,value , skill }) => {
 	const gaugeOptions = {
+		
+		credits: {
+			position: {
+				align: "left",
+				verticalAlign: "bottom",
+				x: -180,
+				y: -10,
+			},
+		},
+
 		chart: {
-			credits: false,
 			type: "gauge",
 			plotBackgroundColor: null,
 			plotBackgroundImage: null,
 			plotBorderWidth: null,
-			plotShadow: true,
+			plotShadow: false,
 			height: "70%",
-         backgroundColor:'transparent'
+			backgroundColor: "transparent",
 		},
 
 		title: {
@@ -26,18 +35,18 @@ const RadialChart = ({ chartColor , value, skill }) => {
 		},
 
 		pane: {
-			startAngle: -110,
-			endAngle: 110,
+			startAngle: -180,
+			endAngle: 180,
 			background: null,
 			center: ["50%", "50%"],
-			size: "100%",
+			size: "80%",
 		},
 
 		// the value axis
 		yAxis: {
 			min: 0,
 			max: 100,
-			tickPixelInterval:null,
+			tickPixelInterval: null,
 			tickPosition: "inside",
 			tickLength: 5,
 			tickWidth: 1,
@@ -53,15 +62,15 @@ const RadialChart = ({ chartColor , value, skill }) => {
 				{
 					from: 0,
 					to: value,
-					color: chartColor, // green
+					color: chartColor,
 					thickness: 10,
 					borderRadius: "0",
-				},{
-               from:value,
-               to:100,
-               color:"#353535"
-            }
-				
+				},
+				{
+					from: value,
+					to: 100,
+					color: "#252525",
+				},
 			],
 		},
 
@@ -73,7 +82,7 @@ const RadialChart = ({ chartColor , value, skill }) => {
 					valueSuffix: "%",
 				},
 				dataLabels: {
-					format: `{y}% ${skill}`,
+					format: ` ${skill} {y}%`,
 					borderWidth: 0,
 					// color:
 					// 	(Highcharts.defaultOptions.title &&
@@ -86,13 +95,13 @@ const RadialChart = ({ chartColor , value, skill }) => {
 				},
 				dial: {
 					radius: "80%",
-					backgroundColor: "#353535",
+					backgroundColor: "#25252500 ",
 					baseWidth: 5,
-					baseLength: "1%",
+					baseLength: "0%",
 					rearLength: "0%",
 				},
 				pivot: {
-					backgroundColor: chartColor,
+					backgroundColor: chartColor+'00',
 					radius: 6,
 				},
 			},
