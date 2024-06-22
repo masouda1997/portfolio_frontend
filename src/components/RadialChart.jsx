@@ -10,6 +10,13 @@ solidGauge(Highcharts);
 
 const RadialChart = ({ chartColor ,value , skill }) => {
 	const gaugeOptions = {
+		subtitle: {
+			text: skill,
+			verticalAlign:'bottom',
+			style:{
+				fontSize:'20px'
+			}
+	   },
 		
 		credits: {
 			position: {
@@ -46,14 +53,16 @@ const RadialChart = ({ chartColor ,value , skill }) => {
 		yAxis: {
 			min: 0,
 			max: 100,
-			tickPixelInterval: null,
+			tickPixelInterval: 0,
 			tickPosition: "inside",
 			tickLength: 5,
-			tickWidth: 1,
+			tickWidth: 0,
 			minorTickInterval: null,
 			labels: {
-				distance: null,
+				distance: 10,
+				y:80,
 				style: {
+					position:'bottom',
 					fontSize: "14px",
 				},
 			},
@@ -82,15 +91,16 @@ const RadialChart = ({ chartColor ,value , skill }) => {
 					valueSuffix: "%",
 				},
 				dataLabels: {
-					format: ` ${skill} {y}%`,
+					format: `  {y}%`,
 					borderWidth: 0,
+					y:-17,
 					// color:
 					// 	(Highcharts.defaultOptions.title &&
 					// 		Highcharts.defaultOptions.title.style &&
 					// 		Highcharts.defaultOptions.title.style.color) ||
 					// 	"#111111",
 					style: {
-						fontSize: "16px",
+						fontSize: "22px",
 					},
 				},
 				dial: {

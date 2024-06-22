@@ -5,7 +5,7 @@ const XPcards = ({title , tag, company="",text, icon,color}) => {
 		<div className="relative border-l-2 px-10 flex flex-col justify-betweens gap-3 items-start text-left ">
 			<span
 				style={{ backgroundColor: `${color}` }}
-				className="w-12 h-12 rounded-full flex justify-center items-center absolute -top-6 -left-6  "
+				className="w-12 h-12 rounded-full flex justify-center items-center absolute -top-4 -left-6  "
 			>
             {icon}
 			</span>
