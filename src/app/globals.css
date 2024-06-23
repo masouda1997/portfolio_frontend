@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  --primary-color : #44d62c
+}
+
 
 .darkTheme {
   @apply bg-[#111] text-white; 
@@ -39,6 +43,36 @@
   height: 2px;
   margin: .5rem auto;
   background: #252525 !important;
+}
+
+.colorSwitcher span {
+  font-size: 16px;
+  /* padding: 0 10px; */
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #fff;
+  animation: zoomup 3s ease infinite;
+  animation-delay: calc(100ms * var(--i));
+}
+
+@keyframes zoomup {
+  0%,
+  100% {
+      color: var(--theme-color);
+      filter: blur(0.5px);
+      text-shadow: 0 0 10px var(--theme-color),
+        0 0 20px var(--theme-color),
+        0 0 30px var(--theme-color),
+        0 0 40px var(--theme-color),
+        0 0 50px var(--theme-color),
+        0 0 60px var(--theme-color)
+    }
+
+  50% {
+    filter: blur(0);
+    color: #44d62c44;
+    text-shadow: none;
+  }
 }
 
 /* .separateLine::after{
