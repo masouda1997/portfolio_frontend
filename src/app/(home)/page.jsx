@@ -49,7 +49,7 @@ const Home = () => {
 						/>
 					</div>
 				</div>
-				<ColorSwitcher color={primaryColor} />
+				{/* <ColorSwitcher color={primaryColor} /> */}
 			</sectoin>
 		</section>
 	);

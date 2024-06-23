@@ -32,6 +32,15 @@
   }
 }
 
+.separatorLine{
+  container: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin: .5rem auto;
+  background: #252525 !important;
+}
+
 /* .separateLine::after{
   content: "";
   width: 20%;

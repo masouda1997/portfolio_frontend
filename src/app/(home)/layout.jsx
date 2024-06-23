@@ -1,17 +1,11 @@
 'use client'
+import ColorSwitcher from "@/components/ColorSwitcher";
 import Menu from "@/components/Menu";
 import ThemeToggler from "@/utilities/ThemeToggler";
-import React, { useLayoutEffect } from "react";
-
-
-// 
-
-
-
+import React, { useLayoutEffect, useState } from "react";
 
 const Layout = ({children}) => {
-   
-
+   const [primaryColor ,  setPrimaryColor] = useState(localStorage.getItem("primary-color"))
    useLayoutEffect(()=>{
       const preferredTheme = window.matchMedia('(perfers-color-scheme:dark)').matches?"dark":'light'
       const storedTheme = localStorage.getItem('theme');
@@ -23,12 +17,17 @@ const Layout = ({children}) => {
       };
    },[])
 
+   const [isColorSwitchActive , setIsColorSwitchActive] = useState(true)
+
 	return (
 		<div className=" flex flex-row-reverse w-screen h-screen  ">
 			<header className=" absolute z-30 flex justify-center items-end flex-col gap-3 p-5 h-screen ">
 				<ThemeToggler className="absolute top-[2rem] bg-[#eeeeee] rounded-full transition-all ease-in duration-200 self-end " />
 				<Menu/>
-			</header>
+			</header> 
+         
+         {isColorSwitchActive ? <ColorSwitcher color={primaryColor} isClose={isColorSwitchActive} setIsClose={setIsColorSwitchActive}/>:<button onClick={()=>setIsColorSwitchActive(!isColorSwitchActive)} className="color-switcher absolute left-0 top-1/4 z-50"> switcher</button>}
+      
 			<main className="basis-10/12 flex-grow">{children}</main>
 		</div>
 	);
