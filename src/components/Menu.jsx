@@ -33,7 +33,6 @@ import { CiMail } from "react-icons/ci";
 // ];
 
 const Menu = () => {
-   const [primaryColor ,  setPrimaryColor] = useState(localStorage.getItem("primary-color"))
    const [menuHover , setMenuHover] = useState({
       home:false,
       about:false,
@@ -52,7 +51,7 @@ const Menu = () => {
 				}
 			>
 				<Link
-					style={{ border: `${primaryColor} 1px solid` }}
+					style={{ border: `var(--primary-color) 1px solid` }}
 					className="p-2 rounded-full  flex items-center justify-center self-end"
 					href={"/"}
 				>
@@ -70,7 +69,7 @@ const Menu = () => {
 				}
 			>
 				<Link
-					style={{ border: `${primaryColor} 1px solid` }}
+					style={{ border: `var(--primary-color) 1px solid` }}
 					className="p-2 rounded-full flex items-center justify-center self-end"
 					href={"/about"}
 				>
@@ -88,7 +87,7 @@ const Menu = () => {
 				}
 			>
 				<Link
-					style={{ border: `${primaryColor} 1px solid` }}
+					style={{ border: `var(--primary-color) 1px solid` }}
 					className="p-2 rounded-full  flex items-center justify-center self-end"
 					href={"/portfolio"}
 				>
@@ -106,7 +105,7 @@ const Menu = () => {
 				}
 			>
 				<Link
-					style={{ border: `${primaryColor} 1px solid` }}
+					style={{ border: `var(--primary-color) 1px solid` }}
 					className="p-2 rounded-full  flex items-center justify-center self-end"
 					href={"#"}
 				>

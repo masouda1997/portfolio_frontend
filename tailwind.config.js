@@ -17,7 +17,8 @@ module.exports = withMT( {
 		extend: {
 			animation: {
 				"fill-width": "fill-width 1s ease-in-out forwards",
-				drip:'drip 0.5s ease-in-out infinite '
+				drip:'drip 0.5s ease-in-out infinite ',
+				orbit:'orbit 1.5s ease-in-out infinite',
 			},
 			keyframes: {
 				"fill-width": {
@@ -27,10 +28,15 @@ module.exports = withMT( {
 				drip:{
 					'0% , 100%':{transform:'translateY(0)'},
 					'50%':{transform:'translateY(5px)'}
+				},
+				orbit:{
+					'0% ':{transform:'rotate(0deg)'},
+					'50%':{transform:'rotate(180deg)'},
+					'100%':{transform:'rotate(360deg)'}
 				}
 			},
 			colors:{
-				primary:"#f72b1c",
+				primary:"#44d62c",
 				secondary:"#252525"
 			},
 			underline: {

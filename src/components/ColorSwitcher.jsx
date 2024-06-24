@@ -7,9 +7,9 @@ const ColorSwitcher = ({color , setIsClose , isClose}) => {
    const [primaryColor , setPrimaryColor] = useState(color)
 
    const handleColorChange = (event)=>{
+      event.stopPropagation()
       const regex = /#([0-9a-fA-F]{6})/;
-      const match = event.target.parentNode.className.baseVal.match(regex);
-      console.log("@@",match[0]);
+      const match = event.target.parentNode.className.baseVal?.match(regex);
       if(match){
          setPrimaryColor(match[0])
       }else{
@@ -17,14 +17,13 @@ const ColorSwitcher = ({color , setIsClose , isClose}) => {
       }      
    }
 
-   useEffect(() => {
-     localStorage.setItem("primary-color" , primaryColor)
-     
-   }, [primaryColor]);
+   // useEffect(() => {
+   //   localStorage.setItem("primary-color" , primaryColor)
+   // }, [primaryColor]);
    
    useEffect(()=>{
-      document.documentElement.style.setProperty('--theme-color' , primaryColor)
-   },[])
+      document.documentElement.style.setProperty('--primary-color' , primaryColor)
+   },[primaryColor])
 
 
    return (
@@ -36,7 +35,7 @@ const ColorSwitcher = ({color , setIsClose , isClose}) => {
 				>
 					<IoCloseOutline />
 				</button>
-				<h2 className="text-secondary text-center font-semibold pt-1 colorSwitcher  ">
+				<h2 className="text-secondary text-center text-[#eee] font-semibold pt-1 colorSwitcher  ">
             <span style={{'--i':'1'}} >C</span>
             <span style={{'--i':'2'}} >o</span>
             <span style={{'--i':'3'}} >l</span>
@@ -55,7 +54,7 @@ const ColorSwitcher = ({color , setIsClose , isClose}) => {
 				<div className=" separatorLine "></div>
 				<div
 					onClick={(event) => handleColorChange(event)}
-					className="grid grid-cols-4 grid-rows-2 gap-x-5 gap-y-2"
+					className="grid grid-cols-4 grid-rows-2 gap-x-5 gap-y-2 "
 				>
 					<BsDropletFill className="text-[#44d62c] text-2xl hover:animate-drip" />
 					<BsDropletFill className="text-[#ffb400] text-2xl hover:animate-drip" />

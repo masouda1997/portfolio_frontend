@@ -1,6 +1,6 @@
 "use client"
 import '../globals.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ColorSwitcher from '@/components/ColorSwitcher';
 import PrimaryLink from '@/components/PrimaryLink';
 import { GrFormNextLink } from 'react-icons/gr';
@@ -9,11 +9,16 @@ import { GrFormNextLink } from 'react-icons/gr';
 const Home = () => {
 	const [primaryColor ,  setPrimaryColor] = useState(localStorage.getItem("primary-color"))
 	// console.log("@@@@" , primaryColor , typeof primaryColor);
+	useEffect(()=>{
+      document.documentElement.style.setProperty('--primary-color' , primaryColor)
+		console.log(document.documentElement);
+		
+   },[primaryColor])
 	
 	return (
 		<section className=" h-screen relative flex justify-center items-center bg-transparent !overflow-hidden">
 			<div
-				style={{ backgroundColor: `${primaryColor}` }}
+				style={{ backgroundColor: `var(--primary-color)` }}
 				className={`w-[50vw] h-[150vh] absolute -rotate-12 -top-10 -left-[30rem] -z-0 `}
 			></div>
 			<sectoin className="flex justify-between flex-grow h-screen p-12 bg-transparent relative z-auto  ">
@@ -25,7 +30,7 @@ const Home = () => {
 						<h1 className="uppercase flex flex-col font-bold text-[3rem]">
 							{" "}
 							Im Masoud Anaraki.{" "}
-							<span style={{ color: `${primaryColor}` }}>
+							<span style={{ color: `var(--primary-color)` }}>
 								Front-end developer
 							</span>{" "}
 						</h1>
@@ -39,10 +44,10 @@ const Home = () => {
 						<PrimaryLink
 							href={"/"}
 							text={"More About Me"}
-							color={primaryColor}
+							color={'var(--primary-color)'}
 							icon={
 								<GrFormNextLink
-									style={{ backgroundColor: `${primaryColor}` }}
+									style={{ backgroundColor: `var(--primary-color)` }}
 									className="inline w-12 h-12 p-2 rounded-full"
 								/>
 							}

@@ -1,5 +1,5 @@
 import React from 'react';
-import Highcharts, { color } from 'highcharts';
+import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import highchartsMore from 'highcharts/highcharts-more';
 import solidGauge from 'highcharts/modules/solid-gauge';
@@ -111,7 +111,7 @@ const RadialChart = ({ chartColor ,value , skill }) => {
 					rearLength: "0%",
 				},
 				pivot: {
-					backgroundColor: chartColor+'00',
+					backgroundColor: 'transparent',
 					radius: 6,
 				},
 			},

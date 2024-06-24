@@ -25,7 +25,7 @@ const about = () => {
 	return (
 		<section className="h-screen relative flex flex-col justify-start bg-transparent overflow-x-hidden no-scrollbar">
 			<PageTitle
-				primaryColor={primaryColor}
+				primaryColor={'var(--primary-color)'}
 				mainText={"about"}
 				shadowText={"resume"}
 				colorText={"me"}
@@ -105,10 +105,10 @@ const about = () => {
 					<div className="self-start">
 						<PrimaryLink
 							text={"DOWNLOAD CV"}
-							color={primaryColor}
+							color={'var(--primary-color)'}
 							icon={
 								<CiImport
-									style={{ backgroundColor: `${primaryColor}` }}
+									style={{ backgroundColor: `var(--primary-color)` }}
 									className="inline w-12 h-12 p-2 rounded-full"
 								/>
 							}
@@ -151,48 +151,48 @@ const about = () => {
 					{isRadialChart ? (
 						<section className=" w-8/12 grid grid-cols-4 grid-rows-2">
 							<RadialChart
-								chartColor={primaryColor}
+								chartColor={'var(--primary-color)'}
 								value={60}
 								skill={"javaScript"}
 							/>
 							<RadialChart
-								chartColor={primaryColor}
+								chartColor={'var(--primary-color)'}
 								value={70}
 								skill={"react.js"}
 							/>
 							<RadialChart
-								chartColor={primaryColor}
+								chartColor={'var(--primary-color)'}
 								value={30}
 								skill={"next.js"}
 							/>
 							<RadialChart
-								chartColor={primaryColor}
+								chartColor={'var(--primary-color)'}
 								value={70}
 								skill={"css"}
 							/>
 							<RadialChart
-								chartColor={primaryColor}
+								chartColor={'var(--primary-color)'}
 								value={80}
 								skill={"html"}
 							/>
 							<RadialChart
-								chartColor={primaryColor}
+								chartColor={'var(--primary-color)'}
 								value={50}
 								skill={"typeScript"}
 							/>
 							<RadialChart
-								chartColor={primaryColor}
+								chartColor={'var(--primary-color)'}
 								value={40}
 								skill={"python"}
 							/>
 							<RadialChart
-								chartColor={primaryColor}
+								chartColor={'var(--primary-color)'}
 								value={80}
 								skill={"tailwind"}
 							/>
 						</section>
 					) : (
-						<NetworkChart nodeColor={primaryColor} />
+						<NetworkChart nodeColor={'var(--primary-color)'} />
 					)}
 				</section>
 			</section>
@@ -211,7 +211,7 @@ const about = () => {
 								"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto, fuga!"
 							}
 							icon={<FaBriefcase className="w-10" />}
-							color={primaryColor}
+							color={'var(--primary-color)'}
 							company={"entekhab group"}
 						/>
 						<XPcards
@@ -221,7 +221,7 @@ const about = () => {
 								"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto, fuga!"
 							}
 							icon={<FaGraduationCap className="w-10" />}
-							color={primaryColor}
+							color={'var(--primary-color)'}
 							company={"quchan university of technology"}
 						/>
 						<XPcards
@@ -231,7 +231,7 @@ const about = () => {
 								"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto, fuga!"
 							}
 							icon={<FaGraduationCap className="w-10" />}
-							color={primaryColor}
+							color={'var(--primary-color)'}
 							company={"maktab sharif"}
 						/>
 					</section>
