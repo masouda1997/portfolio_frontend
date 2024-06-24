@@ -7,13 +7,6 @@ import { GrFormNextLink } from 'react-icons/gr';
 
 
 const Home = () => {
-	const [primaryColor ,  setPrimaryColor] = useState(localStorage.getItem("primary-color"))
-	// console.log("@@@@" , primaryColor , typeof primaryColor);
-	useEffect(()=>{
-      document.documentElement.style.setProperty('--primary-color' , primaryColor)
-		console.log(document.documentElement);
-		
-   },[primaryColor])
 	
 	return (
 		<section className=" h-screen relative flex justify-center items-center bg-transparent !overflow-hidden">

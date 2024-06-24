@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 const AboutMeCart = ({number , text1 , text2 }) => {
-   const [primaryColor ,  setPrimaryColor] = useState(localStorage.getItem("primary-color"))
 
 	return (
 		<div className="border-[1px] border-[#252525] p-3  rounded-md ">

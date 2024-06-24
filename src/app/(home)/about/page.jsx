@@ -18,7 +18,6 @@ import { FaBriefcase } from "react-icons/fa";
 
 
 const about = () => {
-   const [primaryColor ,  setPrimaryColor] = useState(localStorage.getItem("primary-color"))
 	const [isRadialChart, setIsRadialChart] = useState(true)
 
 

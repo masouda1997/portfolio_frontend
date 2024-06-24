@@ -8,6 +8,7 @@ import { IoSettings } from "react-icons/io5";
 
 const Layout = ({children}) => {
    const [primaryColor ,  setPrimaryColor] = useState(localStorage.getItem("primary-color"))
+   
    useLayoutEffect(()=>{
       const preferredTheme = window.matchMedia('(perfers-color-scheme:dark)').matches?"dark":'light'
       const storedTheme = localStorage.getItem('theme');
