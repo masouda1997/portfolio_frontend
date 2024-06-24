@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { BsDropletFill } from "react-icons/bs";
-import { IoCloseOutline } from "react-icons/io5";
 
 
 const ColorSwitcher = ({color , setIsClose , isClose}) => {
@@ -27,15 +26,10 @@ const ColorSwitcher = ({color , setIsClose , isClose}) => {
 
 
    return (
-		<div className="color-switcher absolute left-0 top-1/4 z-50 bg-white px-4 pb-4 rounded-r-lg overflow-hidden">
+		<div className="color-switcher absolute left-0 top-1/4 z-50  bg-secondary px-4 pb-4 rounded-r-lg overflow-hidden">
 			<div className="relative">
-				<button
-					className="absolute top-1 -right-3 !bg-white !text-secondary"
-					onClick={() => setIsClose(!isClose)}
-				>
-					<IoCloseOutline />
-				</button>
-				<h2 className="text-secondary text-center text-[#eee] font-semibold pt-1 colorSwitcher  ">
+			
+				<h2 onClick={()=> setIsClose(!isClose)} className=" text-center text-[#eee] font-semibold pt-1 colorSwitcher  ">
             <span style={{'--i':'1'}} >C</span>
             <span style={{'--i':'2'}} >o</span>
             <span style={{'--i':'3'}} >l</span>

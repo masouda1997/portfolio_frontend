@@ -40,7 +40,7 @@ const Menu = () => {
       contact:false,
    })
 	return (
-		<ul className="flex  justify-center items-center flex-col gap-3 ">
+		<ul className="flex  justify-center items-center flex-col gap-3 overflow-hidden">
 			<li
 				className=" flex items-center justify-center self-end "
 				onMouseEnter={() =>
@@ -52,7 +52,7 @@ const Menu = () => {
 			>
 				<Link
 					style={{ border: `var(--primary-color) 1px solid` }}
-					className="p-2 rounded-full  flex items-center justify-center self-end"
+					className="p-2 rounded-full  flex items-center justify-center self-end hover:bg-[var(--primary-color)]"
 					href={"/"}
 				>
 					{menuHover.home && <span className="pl-3 tracking-tight">HOME</span>}
@@ -70,7 +70,7 @@ const Menu = () => {
 			>
 				<Link
 					style={{ border: `var(--primary-color) 1px solid` }}
-					className="p-2 rounded-full flex items-center justify-center self-end"
+					className="p-2 rounded-full flex items-center justify-center self-end hover:bg-[var(--primary-color)]"
 					href={"/about"}
 				>
 					{menuHover.user && <span className="pl-3 tracking-tight">ABOUT</span>}
@@ -88,7 +88,7 @@ const Menu = () => {
 			>
 				<Link
 					style={{ border: `var(--primary-color) 1px solid` }}
-					className="p-2 rounded-full  flex items-center justify-center self-end"
+					className="p-2 rounded-full  flex items-center justify-center self-end hover:bg-[var(--primary-color)]"
 					href={"/portfolio"}
 				>
 					{menuHover.portfolio && <span className="pl-3 tracking-tight">PORTFOLIO</span>}
@@ -96,7 +96,7 @@ const Menu = () => {
 				</Link>
 			</li>
 			<li
-				className="flex items-center justify-center self-end "
+				className="flex items-center justify-center self-end  "
 				onMouseEnter={() =>
 					setMenuHover((prev) => ({ ...prev, contact: true }))
 				}
@@ -106,7 +106,7 @@ const Menu = () => {
 			>
 				<Link
 					style={{ border: `var(--primary-color) 1px solid` }}
-					className="p-2 rounded-full  flex items-center justify-center self-end"
+					className="p-2 rounded-full  flex items-center justify-center self-end hover:bg-[var(--primary-color)]"
 					href={"#"}
 				>
 					{menuHover.contact && <span className="pl-3 tracking-tight">CONTACT</span>}
