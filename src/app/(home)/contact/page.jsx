@@ -101,11 +101,11 @@ const page = () => {
 				</article>
 				<form action="#" className="basis-4/6 flex flex-col gap-5 ">
 					<div className="flex justify-between items-center "> 
-						<input type="text" className={`${isDark?'bg-lightGray':'bg-gray-300'} border border-transparent rounded-full px-2 p-1 focus:border-[var(--primary-color)] outline-none  bg-opacity-40`} placeholder="your name" />
-						<input type="email" className={`${isDark?'bg-lightGray':'bg-gray-300'} border border-transparent rounded-full px-2 p-1 focus:border-[var(--primary-color)] outline-none  bg-opacity-40`} placeholder="your email" />
-						<input type="text" className={`${isDark?'bg-lightGray':'bg-gray-300'} border border-transparent rounded-full px-2 p-1 focus:border-[var(--primary-color)] outline-none  bg-opacity-40`} placeholder="your subject" />
+						<input type="text" className={`bg-gray-300 border border-transparent rounded-full px-2 p-1 focus:border-[var(--primary-color)] outline-none  bg-opacity-40`} placeholder="your name" />
+						<input type="email" className={`bg-gray-300 border border-transparent rounded-full px-2 p-1 focus:border-[var(--primary-color)] outline-none  bg-opacity-40`} placeholder="your email" />
+						<input type="text" className={`bg-gray-300 border border-transparent rounded-full px-2 p-1 focus:border-[var(--primary-color)] outline-none  bg-opacity-40`} placeholder="your subject" />
 					</div>
-					<textarea rows={15} name="" id="" className={`${isDark?'bg-lightGray':'bg-gray-300'} border border-transparent rounded-3xl px-2 p-1 focus:border-[var(--primary-color)] outline-none  bg-opacity-40`}></textarea>
+					<textarea rows={15} name="" id="" className={`bg-gray-300 border border-transparent rounded-3xl px-2 p-1 focus:border-[var(--primary-color)] outline-none  bg-opacity-40`}></textarea>
 				</form>
 			</section>
 		</section>
