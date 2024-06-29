@@ -107,7 +107,7 @@ const Menu = () => {
 				<Link
 					style={{ border: `var(--primary-color) 1px solid` }}
 					className="p-2 rounded-full  flex items-center justify-center self-end hover:bg-[var(--primary-color)]"
-					href={"#"}
+					href={"/contact"}
 				>
 					{menuHover.contact && <span className="pl-3 tracking-tight">CONTACT</span>}
 					<CiMail className="w-8 h-8 p-1 " />

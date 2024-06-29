@@ -11,7 +11,7 @@ function NetworkChart({ nodeColor }) {
 		{ from: "skills", to: "JS" },
 		{ from: "skills", to: "HTML" },
 		{ from: "skills", to: "css" },
-		{ from: "skills", to: "MySQL" },
+		{ from: "skills", to: "SQL" },
 		{ from: "skills", to: "Python" },
 		{ from: "skills", to: "Git" },
 
@@ -38,12 +38,20 @@ function NetworkChart({ nodeColor }) {
 			spacingTop: 10,
 			spacingLeft: 0,
 			spacingRight: 0,
-			width: 700,
+			width: 900,
 			height: null,
 			backgroundColor: null,
 			plotBorderWidth: 0,
 			style: {
 				fontFamily: "serif",
+			},
+		},
+		credits: {
+			position: {
+				align: "left",
+				verticalAlign: "bottom",
+				x: -180,
+				y: -10,
 			},
 		},
 		title: {
@@ -68,7 +76,7 @@ function NetworkChart({ nodeColor }) {
 				dataLabels: {
 					enabled: true, // Display node labels
 					style: {
-						fontSize: "16px", // Set the desired font size here
+						fontSize: "14px", // Set the desired font size here
 						// fontWeight: "bold",
 						// color: 'black'
 					},
@@ -118,7 +126,7 @@ function NetworkChart({ nodeColor }) {
 						},
 					},
 					{
-						id: "MySQL",
+						id: "SQL",
 						marker: {
 							radius: 10, // Custom size
 							//   fillColor: 'green' // Custom color

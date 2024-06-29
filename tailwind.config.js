@@ -37,7 +37,8 @@ module.exports = withMT( {
 			},
 			colors:{
 				primary:"#44d62c",
-				secondary:"#252525"
+				secondary:"#252525",
+				lightGray:"#767676",
 			},
 			underline: {
 				'before': 'content "" block h-px bg-black'
