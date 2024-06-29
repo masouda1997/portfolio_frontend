@@ -2,11 +2,14 @@
 import ColorSwitcher from "@/components/ColorSwitcher";
 import Menu from "@/components/Menu";
 import ThemeToggler from "@/utilities/ThemeToggler";
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { IoSettings } from "react-icons/io5";
 
 
 const Layout = ({children}) => {
+	useEffect(()=>{
+		localStorage.setItem('primary-color' , '#44d62c')
+	},[])
    const [primaryColor ,  setPrimaryColor] = useState(localStorage.getItem("primary-color"))
    
    useLayoutEffect(()=>{

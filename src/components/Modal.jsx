@@ -28,45 +28,38 @@ const Modal = ({ open, handleOpen, data , theme }) => {
 			<DialogBody>
 				<div className="grid grid-cols-2 grid-rows-2">
 					<div className="flex justify-start items-center">
-						<CiViewList className="w-7 h-7 " />
+						<CiViewList className="w-6 h-6 " />
 						&nbsp;
 						<span> project : </span>
 						<span className="font-bold text-sm "> {data && data.name} </span>
 					</div>
 					<div className="flex justify-start items-center">
-						<CiUser className="w-7 h-7 " />
+						<CiUser className="w-6 h-6 " />
 						&nbsp;
 						<span> client : </span>
 						<span className="font-bold text-sm "> </span>
 					</div>
 					<div className="flex justify-start items-center">
-						<HiOutlineCodeBracket className="w-7 h-7 t" />
+						<HiOutlineCodeBracket className="w-6 h-6 t" />
 						&nbsp;
 						<span> languages : </span>
 						<span className="font-bold text-sm ">{data && data.description}</span>
 					</div>
 					<div className="flex justify-start items-center">
-						<CiShare1 className="w-7 h-7" />
+						<CiShare1 className="w-6 h-6 " />
 						&nbsp;
 						<span> code : </span>
 						<span className="font-bold text-sm ">{data && data.link}</span>
 					</div>
 				</div>
+				
 				{/* {data && data.description} */}
 			</DialogBody>
-			{/* <DialogFooter>
-				<Button
-					variant="text"
-					color="red"
-					onClick={handleOpen}
-					className="mr-1"
-				>
-					<span>Cancel</span>
-				</Button>
-				<Button variant="gradient" color="green" onClick={handleOpen}>
-					<span>Confirm</span>
-				</Button>
-			</DialogFooter> */}
+			<DialogFooter>
+				<div className="w-full h-80 bg-black  overflow-hidden rounded-md">
+					<img src="#" alt=" " />
+				</div>
+			</DialogFooter>
 		</Dialog>
 	);
 };
