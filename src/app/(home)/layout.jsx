@@ -45,7 +45,7 @@ const Layout = ({children}) => {
 					onClick={() => setIsColorSwitchActive(!isColorSwitchActive)}
 					className="color-switcher absolute left-0 top-1/4 z-50 p-3 rounded-r-md bg-secondary "
 				>
-               <IoSettings className="animate-orbit  text-white"/>
+               <IoSettings className="animate-orbit   text-xl text-[var(--primary-color)]"/>
             </button>
 			)}
 

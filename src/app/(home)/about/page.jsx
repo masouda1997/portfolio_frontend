@@ -9,6 +9,7 @@ import RadialChart from "@/components/RadialChart";
 import { FaGraduationCap } from "react-icons/fa";
 import XPcards from "@/components/XPcards";
 import { FaBriefcase } from "react-icons/fa";
+import { CiRedo } from "react-icons/ci";
 
 
 
@@ -141,10 +142,10 @@ const About = () => {
 				</h2>
 				<section className="flex justify-center relative ">
 					<button
-						className="absolute top-0 left-0"
+						className="absolute top-0 left-0 z-50 p-3 rounded-r-md bg-secondary"
 						onClick={() => setIsRadialChart(!isRadialChart)}
 					>
-						toggle charts
+						<CiRedo className="animate-orbit text-[var(--primary-color)] text-xl" />
 					</button>
 					{isRadialChart ? (
 						<section className=" w-8/12 grid grid-cols-4 grid-rows-2">
