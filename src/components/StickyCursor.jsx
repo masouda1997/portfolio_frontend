@@ -1,8 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
-const StickyCursor = () => {
-  let cursorSize = 20 // to centerized div with cursor
+const StickyCursor = ({stickyElement}) => {
+  console.log(stickyElement);
+  
+
+  const [isHovered , setIsHovered] = useState(false)
+
+  let cursorSize = isHovered?60: 20 // to centerized div with cursor
 
 	const mouse = {
 		x: useMotionValue(0),
@@ -20,19 +25,32 @@ const StickyCursor = () => {
 		mouse.y.set(clientY - cursorSize/2);
 	};
 
+  const manageMouseOver = (e)=>{
+    setIsHovered(true)
+  }
+  const manageMouseLeave = (e)=>{
+    setIsHovered(false)
+  }
+
 	useEffect(() => {
 		window.addEventListener("mousemove", manageMouseMove);
-		return () => {window.removeEventListener("mousemove", manageMouseMove)};
+    stickyElement.current.addEventListener("mouseover" , manageMouseOver)
+    stickyElement.current.addEventListener("mouseleave" , manageMouseLeave)
+		return () => {
+      window.removeEventListener("mousemove", manageMouseMove)
+      stickyElement.current.removeEventListener('mouseover' , manageMouseOver)
+      stickyElement.current.removeEventListener('mouseleave' , manageMouseLeave)
+    };
 	});
 
 	return (
 		<motion.div
-    style={{ top: smoothMouse.y, left: smoothMouse.x }}
-			className={`w-7 h-7 border border-[var(--primary-color)] fixed rounded-full flex justify-center items-center`}
+      style={{ top: smoothMouse.y, left: smoothMouse.x }}
+			className={`w-7 h-7 border border-[var(--primary-color)] fixed rounded-full flex justify-center items-center z-auto`}
+      animate={{width:cursorSize , height:cursorSize }}
 		>
-			<div
-        style={{ top: smoothMouse.y, left: smoothMouse.x }}
-				className={`w-3 h-3 bg-[var(--primary-color)] rounded-full fixed `}
+			<div    
+				className={`w-3 h-3 bg-[var(--primary-color)] rounded-full`}
 			></div>
 		</motion.div>
 	);

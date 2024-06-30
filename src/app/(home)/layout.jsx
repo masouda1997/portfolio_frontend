@@ -3,7 +3,7 @@ import ColorSwitcher from "@/components/ColorSwitcher";
 import Menu from "@/components/Menu";
 import StickyCursor from "@/components/StickyCursor";
 import ThemeToggler from "@/utilities/ThemeToggler";
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { IoSettings } from "react-icons/io5";
 
 
@@ -11,6 +11,9 @@ import { IoSettings } from "react-icons/io5";
 const Layout = ({children}) => {
 	const [isDark, setIsDark] = useState(null)
 	const [primaryColor ,  setPrimaryColor] = useState(localStorage.getItem("primary-color"))
+	const stickyElement = useRef(null)
+
+
 	useEffect(()=>{
 		localStorage.setItem('primary-color' , '#44d62c')
 		setPrimaryColor('#44d62c')
@@ -32,12 +35,12 @@ const Layout = ({children}) => {
 	return (
 		<div className=" flex flex-row-reverse w-screen h-screen  ">
 			<header className=" absolute z-30 flex justify-center items-end flex-col gap-3 p-5 h-screen ">
-				<ThemeToggler isDark={isDark} setIsDark={setIsDark} className="absolute top-[2rem] bg-[#eeeeee] rounded-full transition-all ease-in duration-200 self-end " />
-				<Menu />
+				<ThemeToggler ref={stickyElement}  isDark={isDark} setIsDark={setIsDark} className="absolute top-[2rem] bg-[#eeeeee] rounded-full transition-all ease-in duration-200 self-end " />
+				<Menu ref={stickyElement} />
 			</header>
 
 			{isColorSwitchActive ? (
-				<ColorSwitcher
+				<ColorSwitcher 
 					color={primaryColor}
 					isClose={isColorSwitchActive}
 					setIsClose={setIsColorSwitchActive}
@@ -51,7 +54,7 @@ const Layout = ({children}) => {
             </button>
 			)}
 
-			<StickyCursor/>
+			<StickyCursor  stickyElement={stickyElement}/>
 
 			<main className="basis-10/12 flex-grow">{children}</main>
 		</div>

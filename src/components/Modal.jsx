@@ -52,8 +52,6 @@ const Modal = ({ open, handleOpen, data , theme }) => {
 						<span className="font-bold text-sm ">{data && data.link}</span>
 					</div>
 				</div>
-				
-				{/* {data && data.description} */}
 			</DialogBody>
 			<DialogFooter>
 				<div className="w-full h-80 bg-black  overflow-hidden rounded-md">
