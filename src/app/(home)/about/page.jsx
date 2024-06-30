@@ -15,7 +15,7 @@ import { FaBriefcase } from "react-icons/fa";
 
 
 
-const about = () => {
+const About = () => {
 	const [isRadialChart, setIsRadialChart] = useState(true)
 
 	
@@ -240,4 +240,4 @@ const about = () => {
 	);
 };
 
-export default about;
+export default About;

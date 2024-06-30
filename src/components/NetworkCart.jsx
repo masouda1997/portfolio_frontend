@@ -74,11 +74,11 @@ function NetworkChart({ nodeColor }) {
 					fillColor: nodeColor,
 				},
 				dataLabels: {
-					enabled: true, // Display node labels
+					enabled: true,
+					linkFormat: "",
 					style: {
-						fontSize: "14px", // Set the desired font size here
-						// fontWeight: "bold",
-						// color: 'black'
+						fontSize: "1em",
+						fontWeight: "normal",
 					},
 				},
 				nodes: [
@@ -110,7 +110,6 @@ function NetworkChart({ nodeColor }) {
 							//   fillColor: 'green' // Custom color
 						},
 					},
-				
 					{
 						id: "ts",
 						marker: {
@@ -202,7 +201,6 @@ function NetworkChart({ nodeColor }) {
 							//   fillColor: 'green' // Custom color
 						},
 					},
-				
 				],
 			},
 		],

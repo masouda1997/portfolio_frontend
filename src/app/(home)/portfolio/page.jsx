@@ -78,7 +78,7 @@ const fakeData = [
 	},
 ];
 
-const page = () => {
+const Page = () => {
 	const [open, setOpen] = useState(false);
 	const [modalData, setModalData] = useState(null);
 	const [modalTheme, setModalTheme] = useState("");
@@ -120,4 +120,4 @@ const page = () => {
 	);
 };
 
-export default page;
+export default Page;

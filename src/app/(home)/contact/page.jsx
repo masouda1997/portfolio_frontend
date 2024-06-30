@@ -11,7 +11,7 @@ import { FaTelegramPlane } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 
 
-const page = () => {
+const Page = () => {
 	const [isDark, setIsDark] = useState(false)
 
    useEffect(() => {
@@ -112,4 +112,4 @@ const page = () => {
    );
 };
 
-export default page;
+export default Page;
