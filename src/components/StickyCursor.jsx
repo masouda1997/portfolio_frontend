@@ -21,8 +21,15 @@ const StickyCursor = ({stickyElement}) => {
 
 	const manageMouseMove = (e) => {
 		const { clientX, clientY } = e;
-		mouse.x.set(clientX - cursorSize/2);
-		mouse.y.set(clientY - cursorSize/2);
+    const {left , top , width , height} = stickyElement.current.getBoundingClientRect()
+    const center = {x:left+width/2 , y:top+height/2}
+    if(isHovered){
+      mouse.x.set(center.x - cursorSize/2)
+      mouse.y.set(center.y - cursorSize/2)
+    }else{
+      mouse.x.set(clientX - cursorSize/2);
+      mouse.y.set(clientY - cursorSize/2);
+    }
 	};
 
   const manageMouseOver = (e)=>{
@@ -34,12 +41,12 @@ const StickyCursor = ({stickyElement}) => {
 
 	useEffect(() => {
 		window.addEventListener("mousemove", manageMouseMove);
-    stickyElement.current.addEventListener("mouseover" , manageMouseOver)
-    stickyElement.current.addEventListener("mouseleave" , manageMouseLeave)
+    stickyElement?.current.addEventListener("mouseover" , manageMouseOver)
+    stickyElement?.current.addEventListener("mouseleave" , manageMouseLeave)
 		return () => {
       window.removeEventListener("mousemove", manageMouseMove)
-      stickyElement.current.removeEventListener('mouseover' , manageMouseOver)
-      stickyElement.current.removeEventListener('mouseleave' , manageMouseLeave)
+      stickyElement?.current.removeEventListener('mouseover' , manageMouseOver)
+      stickyElement?.current.removeEventListener('mouseleave' , manageMouseLeave)
     };
 	});
 

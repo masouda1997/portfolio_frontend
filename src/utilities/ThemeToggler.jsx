@@ -23,10 +23,18 @@ const ThemeToggler = forwardRef(
          localStorage.setItem("theme" , isDarkTheme?'dark':'light')
       }
       return (
-         <button ref={ref} className={`${props.className}`} onClick={toggleTheme}>
-            {isDarkTheme ? <CiSun  className="p-2 w-12 h-12  " /> : <CiDark className="p-2 w-12 h-12 "/>}
-         </button>
-      )
+			<button  className="absolute top-[2rem] bg-[#eeeeee] rounded-full transition-all ease-in duration-200 self-end " onClick={toggleTheme}>
+				{isDarkTheme ? (
+               <div ref={ref} className="relative" >
+                  <CiSun className="p-2 w-12 h-12 " />
+               </div>
+				) : (
+               <div ref={ref} className="relative"  >
+                  <CiDark className="p-2 w-12 h-12 " />
+               </div>
+				)}
+			</button>
+		);
    }
 ) 
 
