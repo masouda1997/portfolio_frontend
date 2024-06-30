@@ -16,9 +16,6 @@ const ColorSwitcher = ({color , setIsClose , isClose}) => {
       }      
    }
 
-   // useEffect(() => {
-   //   localStorage.setItem("primary-color" , primaryColor)
-   // }, [primaryColor]);
    
    useEffect(()=>{
       document.documentElement.style.setProperty('--primary-color' , primaryColor)
