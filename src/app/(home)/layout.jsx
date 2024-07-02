@@ -35,12 +35,16 @@ const Layout = ({children}) => {
 	return (
 		<div className=" flex flex-row-reverse w-screen h-screen  ">
 			<header className=" absolute z-30 flex justify-center items-end flex-col gap-3 p-5 h-screen ">
-				<ThemeToggler ref={stickyElement}  isDark={isDark} setIsDark={setIsDark} className="absolute top-[2rem] bg-[#eeeeee] rounded-full transition-all ease-in duration-200 self-end " />
+				<ThemeToggler
+					ref={stickyElement}
+					isDark={isDark}
+					setIsDark={setIsDark}
+				/>
 				<Menu ref={stickyElement} />
 			</header>
 
 			{isColorSwitchActive ? (
-				<ColorSwitcher 
+				<ColorSwitcher
 					color={primaryColor}
 					isClose={isColorSwitchActive}
 					setIsClose={setIsColorSwitchActive}
@@ -50,13 +54,20 @@ const Layout = ({children}) => {
 					onClick={() => setIsColorSwitchActive(!isColorSwitchActive)}
 					className="color-switcher absolute left-0 top-1/4 z-50 p-3 rounded-r-md bg-secondary "
 				>
-               <IoSettings className="animate-orbit text-xl text-[var(--primary-color)]"/>
-            </button>
+					<IoSettings className="animate-orbit text-xl text-[var(--primary-color)]" />
+				</button>
 			)}
 
-			<StickyCursor  stickyElement={stickyElement}/>
+			<StickyCursor stickyElement={stickyElement} />
 
-			<main className="basis-10/12 flex-grow">{children}</main>
+			<main className="basis-10/12 flex-grow">
+				{" "}
+				{React.Children.map(children, (child) =>
+					React.isValidElement(child)
+						? React.cloneElement(child, { stickyElement })
+						: child
+				)}
+			</main>
 		</div>
 	);
 };
