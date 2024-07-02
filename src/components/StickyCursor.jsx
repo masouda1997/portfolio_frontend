@@ -13,6 +13,7 @@ const StickyCursor = ({stickyElement}) => {
 		x: useMotionValue(0),
 		y: useMotionValue(0),
 	};
+  
   const smoothOptions = {damping:20  , mass:0.5 , stiffness:300 }
   const smoothMouse = {
     x:useSpring(mouse.x ,smoothOptions),
@@ -52,13 +53,11 @@ const StickyCursor = ({stickyElement}) => {
 
 	return (
 		<motion.div
-      style={{ top: smoothMouse.y, left: smoothMouse.x }}
-			className={`w-7 h-7 border border-[var(--primary-color)] fixed rounded-full flex justify-center items-center z-auto`}
+      style={{ top: smoothMouse.y, left: smoothMouse.x  , pointerEvents:"none"}}
+			className={`w-9 h-9 border border-[var(--primary-color)] fixed rounded-full flex justify-center items-center z-50  `}
       animate={{width:cursorSize , height:cursorSize }}
 		>
-			<div    
-				className={`w-3 h-3 bg-[var(--primary-color)] rounded-full`}
-			></div>
+			<div className={`w-3 h-3 bg-[var(--primary-color)] rounded-full`}></div>
 		</motion.div>
 	);
 };
