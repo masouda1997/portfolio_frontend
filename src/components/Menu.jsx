@@ -43,7 +43,7 @@ const Menu =() => {
 			contact:false,
 		})
 		return (
-			<ul className="flex  justify-center items-center flex-col gap-3 overflow-hidden">
+			<ul className="flex  justify-center items-center flex-col self-center gap-3 overflow-hidden">
 				<li
 					className=" flex items-center justify-center self-end "
 					onMouseEnter={() =>setMenuHover((prev) => ({ ...prev, home: true }))}

@@ -24,10 +24,10 @@ function NetworkChart({ nodeColor }) {
 		{ from: "JS", to: "react" },
 		{ from: "JS", to: "ts" },
 		{ from: "JS", to: "redux" },
+		{ from: "JS", to: "node" },
 
 		{ from: "react", to: "next" },
-		
-      { from: "Python", to: "django" },   
+		   
 	];
 
 	const chartOptions = {
@@ -195,9 +195,9 @@ function NetworkChart({ nodeColor }) {
 						},
 					},
 					{
-						id: "django",
+						id: "node",
 						marker: {
-							radius: 10, // Custom size
+							radius: 15, // Custom size
 							//   fillColor: 'green' // Custom color
 						},
 					},
