@@ -34,7 +34,7 @@ const Layout = ({children}) => {
 
 	return (
 		<div className=" flex flex-row-reverse w-screen h-screen relative  ">
-			<header className=" absolute z-30 justify-between  items-end flex flex-col gap-3 p-5 h-screen ">
+			<header className="absolute z-30 justify-center items-end flex flex-col gap-3 p-5 h-screen">
 				<ThemeToggler
 					ref={stickyElement}
 					isDark={isDark}
