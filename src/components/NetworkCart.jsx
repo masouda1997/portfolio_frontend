@@ -27,6 +27,8 @@ function NetworkChart({ nodeColor }) {
 		{ from: "JS", to: "node" },
 
 		{ from: "react", to: "next" },
+
+		{ from:"node", to: "express"}
 		   
 	];
 
@@ -106,8 +108,8 @@ function NetworkChart({ nodeColor }) {
 					{
 						id: "next",
 						marker: {
-							radius: 17, // Custom size
-							//   fillColor: 'green' // Custom color
+							radius: 17,
+							fillColor:'#334443'
 						},
 					},
 					{
@@ -127,8 +129,8 @@ function NetworkChart({ nodeColor }) {
 					{
 						id: "SQL",
 						marker: {
-							radius: 10, // Custom size
-							//   fillColor: 'green' // Custom color
+							radius: 10, 
+							fillColor:'#334443'
 						},
 					},
 					{
@@ -197,10 +199,17 @@ function NetworkChart({ nodeColor }) {
 					{
 						id: "node",
 						marker: {
-							radius: 15, // Custom size
+							radius: 10, // Custom size
 							//   fillColor: 'green' // Custom color
 						},
 					},
+					{
+						id:"express",
+						marker:{
+							radius:10,
+							fillColor:'#334443'
+						}
+					}
 				],
 			},
 		],
