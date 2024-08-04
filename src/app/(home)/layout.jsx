@@ -33,7 +33,7 @@ const Layout = ({children}) => {
    const [isColorSwitchActive , setIsColorSwitchActive] = useState(false)
 
 	return (
-		<div className=" flex flex-row-reverse w-screen h-screen relative  ">
+		<div className=" flex flex-row-reverse w-screen h-screen relative ">
 			<header className="absolute z-30 justify-center items-end flex flex-col gap-3 p-5 h-screen">
 				<ThemeToggler
 					ref={stickyElement}
