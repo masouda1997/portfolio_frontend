@@ -7,6 +7,11 @@
   --primary-shadow : #44d62c50
 }
 
+body{
+  cursor: none;
+}
+
+
 
 .darkTheme {
   @apply bg-[#111] text-white; 
