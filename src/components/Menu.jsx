@@ -5,6 +5,7 @@ import { CiHome } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
 import { CiFolderOn } from "react-icons/ci";
 import { CiMail } from "react-icons/ci";
+import { CiBeaker1 } from "react-icons/ci";
 
 // const menuData = [
 // 	{
@@ -41,9 +42,10 @@ const Menu =() => {
 			about:false,
 			portfolio:false,
 			contact:false,
+			fun:false
 		})
 		return (
-			<ul className="flex  justify-center items-center flex-col self-center gap-3 overflow-hidden">
+			<ul className="flex justify-center items-center flex-col self-center gap-3 overflow-hidden">
 				<li
 					className=" flex items-center justify-center self-end "
 					onMouseEnter={() =>setMenuHover((prev) => ({ ...prev, home: true }))}
@@ -114,6 +116,21 @@ const Menu =() => {
 					>
 						{menuHover.contact && <span className="pl-3 tracking-tight">CONTACT</span>}
 						<CiMail className="w-8 h-8 p-1 " />
+					</Link>
+				</li>
+
+				<li
+					className="flex items-center justify-center self-end  "
+					onMouseEnter={() =>setMenuHover((prev) => ({ ...prev, fun: true }))}
+					onMouseLeave={() =>setMenuHover((prev) => ({ ...prev, fun: false }))}
+				>
+					<Link
+						style={{ border: `var(--primary-color) 1px solid` }}
+						className={`p-2 rounded-full  flex items-center justify-center self-end hover:bg-[var(--primary-color)] ${pathname === '/fun' && 'bg-[var(--primary-color)]'} `}
+						href={"/fun"}
+					>
+						{menuHover.fun && <span className="pl-3 tracking-tight">4 FUN </span>}
+						<CiBeaker1 className="w-8 h-8 p-1 " />
 					</Link>
 				</li>
 			</ul>
