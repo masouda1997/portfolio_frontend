@@ -39,8 +39,8 @@ const StickyCursor = ({stickyElement}) => {
     if(isHovered){
       mouse.x.set(center.x - cursorSize/2)
       mouse.y.set(center.y - cursorSize/2)
-      innerMouse.x.set(center.x - cursorSize/2)
-      innerMouse.y.set(center.y - cursorSize/2)
+      innerMouse.x.set(center.x - cursorSize+10)
+      innerMouse.y.set(center.y - cursorSize+10)
     }else{
       mouse.x.set(clientX - cursorSize/2);
       mouse.y.set(clientY - cursorSize/2);
@@ -70,18 +70,26 @@ const StickyCursor = ({stickyElement}) => {
     };
 	});
 
-	return (<>
-      <motion.div
-        style={{ top: smoothMouse.y, left: smoothMouse.x  , pointerEvents:"none"}}
-        className={` w-9 h-9 border border-[var(--primary-color)] fixed rounded-full flex justify-center items-center z-50  `}
-        animate={{width:cursorSize , height:cursorSize }}
-      >
-      </motion.div>
-      <motion.div
-        style={{  x: innerSmoothMouse.x, y: innerSmoothMouse.y, pointerEvents: "none" }}
-        className={` absolute top-11 left-11 w-3 h-3 bg-[var(--primary-color)] rounded-full z-50`}>
-      </motion.div>
-  </>
+	return (
+		<>
+			<motion.div
+				style={{
+					top: smoothMouse.y,
+					left: smoothMouse.x,
+					pointerEvents: "none",
+				}}
+				className={` w-9 h-9 border border-[var(--primary-color)] fixed rounded-full flex justify-center items-center z-50  `}
+				animate={{ width: cursorSize, height: cursorSize }}
+			></motion.div>
+			<motion.div
+				style={{
+					x: innerSmoothMouse.x,
+					y: innerSmoothMouse.y,
+					pointerEvents: "none",
+				}}
+				className={` absolute top-11 left-11 w-3 h-3 bg-[var(--primary-color)] rounded-full z-50`}
+			></motion.div>
+		</>
 	);
 };
 

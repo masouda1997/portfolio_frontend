@@ -21,11 +21,10 @@ const Home = () => {
 				<div className="flex justify-center items-center h-[100%] basis-4/6 relative">
 					<div className=" h-max p-1 w-[40rem]">
 						<h1 className="uppercase flex flex-col font-bold text-[3rem]">
-							{" "}
-							Im Masoud Anaraki.{" "}
+							{'Im Masoud Anaraki.'}
 							<span style={{ color: `var(--primary-color)` }}>
-								Front-end developer
-							</span>{" "}
+								{'Front-end developer'}
+							</span>
 						</h1>
 						<p>
 							Lorem ipsum dolor sit amet consectetur, adipisicing elit.
