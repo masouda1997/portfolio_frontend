@@ -15,7 +15,6 @@ function NetworkChart({ nodeColor }) {
 		{ from: "skills", to: "Python" },
 		{ from: "skills", to: "Git" },
 
-	
 		{ from: "css", to: "sass" },
 		{ from: "css", to: "tailwind" },
 		{ from: "css", to: "bootstrap" },

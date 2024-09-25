@@ -11,15 +11,32 @@ import XPcards from "@/components/XPcards";
 import { FaBriefcase } from "react-icons/fa";
 import { CiRedo } from "react-icons/ci";
 
-
-
+const fetchData = async ()=>{
+	try {
+		const res = await fetch('http://localhost:8000/api/author/list',{
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json', // Ensure the correct content type
+			}
+		})
+		if (!res.ok) {
+			throw new Error(`HTTP error! status: ${res.status}`);
+		}
+		const personalInfo  = await res.json()
+		console.log("❤" , personalInfo);
+		return personalInfo
+	} catch (error) {
+		console.log(error);
+		return(error)
+	}
+}
 
 
 
 const About = () => {
 	const [isRadialChart, setIsRadialChart] = useState(true)
 
-	
+	const data = fetchData()
 	
 	return (
 		<section className="h-screen relative flex flex-col justify-start bg-transparent overflow-x-hidden no-scrollbar">

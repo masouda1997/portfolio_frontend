@@ -54,6 +54,8 @@ const Menu = () => {
 		<ul className="flex justify-center items-center flex-col self-center gap-3 overflow-hidden">
 			{menuData.map((item) => (
 				<li
+					onMouseEnter={()=> setMenuHover(prev => ({...prev , [item.title]:true}))}
+					onMouseLeave={()=> setMenuHover(prev => ({...prev , [item.title]:false}))}
 					key={item.id}
 					className="flex items-center justify-center self-end"
 				>
@@ -66,7 +68,7 @@ const Menu = () => {
 						href={item.link}
 					>
 						{menuHover[item.title] && (
-							<span className="pl-3 tracking-tight uppercase">
+							<span className="pl-3 tracking-tight uppercase transition-all duration-300">
 								{item.title}
 							</span>
 						)}
