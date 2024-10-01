@@ -3,15 +3,21 @@ import ColorSwitcher from "@/components/ColorSwitcher";
 import Menu from "@/components/Menu";
 import StickyCursor from "@/components/StickyCursor";
 import ThemeToggler from "@/utilities/ThemeToggler";
+import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { IoSettings } from "react-icons/io5";
+import { Suspense } from "react";
 
 
 
 const Layout = ({children}) => {
 	const [isDark, setIsDark] = useState(null)
 	const [primaryColor ,  setPrimaryColor] = useState(localStorage.getItem("primary-color"))
+	const [isColorSwitchActive , setIsColorSwitchActive] = useState(false)
+	const [isWaveVisible , setIsWaveVisible] = useState(false)
 	const stickyElement = useRef(null)
+	// const router = useRouter()
+	const pathname = usePathname();
 
 
 	useEffect(()=>{
@@ -30,7 +36,17 @@ const Layout = ({children}) => {
       };
    },[])
 
-   const [isColorSwitchActive , setIsColorSwitchActive] = useState(false)
+	const handleRouteChange = (url)=>{
+		setIsWaveVisible(true)
+		setTimeout(()=>{
+			setIsWaveVisible(false)
+		} , 1000)
+	}
+	// Detect route changes using useEffect and pathname
+	useEffect(()=>{
+		handleRouteChange()
+	} , [pathname])
+
 
 	return (
 		<div className=" flex flex-row-reverse w-screen h-screen relative ">
@@ -59,15 +75,18 @@ const Layout = ({children}) => {
 			)}
 
 			<StickyCursor stickyElement={stickyElement} />
-
-			<main className="basis-10/12 flex-grow">
-				{" "}
-				{React.Children.map(children, (child) =>
-					React.isValidElement(child)
-						? React.cloneElement(child, { stickyElement })
-						: child
+			{isWaveVisible && <div className='wave'></div> } 
+				{!isWaveVisible && (
+					<main className="basis-10/12 flex-grow">
+						{" "}
+						{React.Children.map(children, (child) =>
+							React.isValidElement(child)
+								? React.cloneElement(child, { stickyElement })
+								: child
+						)}
+					</main>
 				)}
-			</main>
+
 		</div>
 	);
 };

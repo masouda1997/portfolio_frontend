@@ -65,8 +65,8 @@ const StickyCursor = ({stickyElement}) => {
     stickyElement?.current.addEventListener("mouseleave" , manageMouseLeave)
 		return () => {
       window.removeEventListener("mousemove", manageMouseMove)
-      stickyElement?.current.removeEventListener('mouseover' , manageMouseOver)
-      stickyElement?.current.removeEventListener('mouseleave' , manageMouseLeave)
+      stickyElement?.current?.removeEventListener('mouseover' , manageMouseOver)
+      stickyElement?.current?.removeEventListener('mouseleave' , manageMouseLeave)
     };
 	});
 
