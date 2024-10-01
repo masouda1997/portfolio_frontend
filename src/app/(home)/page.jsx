@@ -1,7 +1,7 @@
 "use client"
 import '../globals.css'
-import { useEffect, useState } from 'react';
-import ColorSwitcher from '@/components/ColorSwitcher';
+// import { useEffect, useState } from 'react';
+// import ColorSwitcher from '@/components/ColorSwitcher';
 import PrimaryLink from '@/components/PrimaryLink';
 import { GrFormNextLink } from 'react-icons/gr';
 

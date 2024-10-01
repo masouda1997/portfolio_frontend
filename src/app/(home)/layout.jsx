@@ -43,7 +43,7 @@ const Layout = ({children}) => {
 				<Menu ref={stickyElement} />
 			</header>
 
-			{isColorSwitchActive ? (
+			{!isColorSwitchActive ? (
 				<ColorSwitcher
 					color={primaryColor}
 					isClose={isColorSwitchActive}
