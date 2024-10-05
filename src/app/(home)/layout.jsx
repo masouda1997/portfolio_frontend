@@ -36,16 +36,17 @@ const Layout = ({children}) => {
       };
    },[])
 
+	// Detect route changes using useEffect and pathname
+	useEffect(()=>{
+		handleRouteChange()
+	} , [pathname])
+
 	const handleRouteChange = (url)=>{
 		setIsWaveVisible(true)
 		setTimeout(()=>{
 			setIsWaveVisible(false)
 		} , 1000)
 	}
-	// Detect route changes using useEffect and pathname
-	useEffect(()=>{
-		handleRouteChange()
-	} , [pathname])
 
 
 	return (

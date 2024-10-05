@@ -1,16 +1,23 @@
 "use client"
+import Button from "@/components/cell/Button";
+import Input from "@/components/cell/Input";
 import PageTitle from "@/components/PageTitle";
 import Link from "next/link";
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { forwardRef, useEffect, useState, useRef } from "react";
 import { FaEnvelopeOpen } from "react-icons/fa";
 import { FaPhoneSquareAlt } from "react-icons/fa";
 
 import { FaLinkedinIn ,FaInstagram ,FaTelegramPlane , FaGithub  } from "react-icons/fa";
 
+
 // eslint-disable-next-line react/display-name
 const Contact = forwardRef(
 	(prpos , ref) => {
 		const [isDark, setIsDark] = useState(false)
+		const [loading, setLoading] = useState(false);
+		const [inputValue, setInputValue] = useState('');
+		const [error, setError] = useState('');
+		const inputRef = useRef();
 	
 		useEffect(() => {
 			const classDark = document.body.className
@@ -24,6 +31,22 @@ const Contact = forwardRef(
 			}
 	
 		}, [isDark]);
+
+		const handleClick = ()=>{
+			setLoading(true)
+			setTimeout(()=>{
+				setLoading(false)
+			} , 2000)
+		}
+
+		const handleChange = (e) => {
+			setInputValue(e.target.value);
+			if (e.target.value.length < 3) {
+			  setError('Input must be at least 3 characters');
+			} else {
+			  setError('');
+			}
+		 };
 	
 	  return (
 			<section className="h-screen  relative flex flex-col items-center bg-transparent overflow-x-hidden no-scrollbar">
@@ -98,12 +121,23 @@ const Contact = forwardRef(
 	
 	
 					<form action="#" className="basis-4/6 flex flex-col gap-5 ">
-						<div className="flex justify-between items-center "> 
-							<input type="text" className={`bg-gray-300 border border-transparent rounded-full px-2 p-1 focus:border-[var(--primary-color)] outline-none  bg-opacity-40`} placeholder="your name" />
+						<div className="flex justify-between items-center ">
+							<Input ref={inputRef} onChange={handleChange} error={error} value={inputValue} placeholder={'your name'} className={`bg-gray-300 border border-transparent rounded-full px-2 p-1 focus:border-[var(--primary-color)] outline-none  bg-opacity-40`} />
+
+
+							{/* <input type="text" className={`bg-gray-300 border border-transparent rounded-full px-2 p-1 focus:border-[var(--primary-color)] outline-none  bg-opacity-40`} placeholder="your name" /> */}
 							<input type="email" className={`bg-gray-300 border border-transparent rounded-full px-2 p-1 focus:border-[var(--primary-color)] outline-none  bg-opacity-40`} placeholder="your email" />
 							<input type="text" className={`bg-gray-300 border border-transparent rounded-full px-2 p-1 focus:border-[var(--primary-color)] outline-none  bg-opacity-40`} placeholder="your subject" />
 						</div>
 						<textarea rows={12} name="" id="" className={`bg-gray-300 border border-transparent rounded-3xl px-2 p-1 focus:border-[var(--primary-color)] outline-none  bg-opacity-40`}></textarea>
+
+						<Button 
+							onClick={handleClick} 
+							type={'submit'}
+							loading={loading}
+							// disabled
+							className={`bg-gray-300 border border-transparent rounded-full px-5 p-1 focus:border-[var(--primary-color)] hover:bg-[var(--primary-color)] transition-all duration-75 outline-none  bg-opacity-40 self-end`}  >{loading?'loading...':'send'}
+						</Button>
 					</form>
 				</section>
 			</section>
