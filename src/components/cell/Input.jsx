@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 
 const Input = forwardRef(({label , placeholder , value , onChange , className , type='text', disable=false , error , ...rest}, ref)=>{
+   const inputRef = React.useRef();
    useImperativeHandle(ref, () => ({
 		focus: () => {
 			inputRef.current.focus();
@@ -13,13 +14,12 @@ const Input = forwardRef(({label , placeholder , value , onChange , className , 
 		},
 	}));
 
-   const inputRef = React.useRef();
 
    return(
       <div className='flex flex-col justify-start items-start' >
          {label && <label>{label}</label>}
          <input type={type}  placeholder={placeholder} value={value}  onChange={onChange} className={className} disable ref={inputRef} {...rest} />
-         {/* {error && <span>{error}</span>} */}
+         {error && <span>{error}</span>}
       </div>
    )
    
