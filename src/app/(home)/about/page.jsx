@@ -145,12 +145,14 @@ const About = () => {
 						text2={"skills learn"}
 					/>
 					<AboutMeCart
-						number={"11k"}
-						text1={"posts view"}
-						text2={"stack overflow"}
+						number={"500"}
+						text1={"connection"}
+						text2={"Linked in"}
 					/>
 				</section>
 			</section>
+
+			{/* ******************************** skils ********************************** */}
 
 			<section className="text-center">
 				<div className="h-0.5 w-1/4 bg-[#252525] m-auto my-16"></div>
