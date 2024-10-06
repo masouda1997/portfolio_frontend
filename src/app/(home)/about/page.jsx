@@ -2,7 +2,7 @@
 import AboutMeCart from "@/components/AboutMeCart";
 import PageTitle from "@/components/PageTitle";
 import PrimaryLink from "@/components/PrimaryLink";
-import {  useState } from "react";
+import { useState } from "react";
 import { CiImport } from "react-icons/ci";
 import NetworkChart from "@/components/NetworkCart";
 import RadialChart from "@/components/RadialChart";
@@ -10,6 +10,7 @@ import { FaGraduationCap } from "react-icons/fa";
 import XPcards from "@/components/XPcards";
 import { FaBriefcase } from "react-icons/fa";
 import { CiRedo } from "react-icons/ci";
+import { motion } from "framer-motion";
 
 const fetchData = async ()=>{
 	try {
@@ -31,6 +32,18 @@ const fetchData = async ()=>{
 	}
 }
 
+export const staggerContainer = (staggerChildren, delayChildren) => {
+	return {
+		hidden: {},
+		show: {
+			transition: {
+				staggerChildren: staggerChildren,
+				delayChildren: delayChildren || 0,
+			},
+		},
+	};
+};
+
 
 
 const About = () => {
@@ -47,7 +60,13 @@ const About = () => {
 				colorText={"me"}
 			/>
 
-			<section className="flex justify-center gap-28  ">
+			<motion.section
+				variants={staggerContainer()}
+				initial="hidden"
+				whileInView="show"
+				viewport={{ once: true, amount: 0.25 }} 
+				className="flex justify-center gap-28  ">
+
 				<article className="flex flex-col justify-between gap-14">
 					<h2 className="tracking-tight text-3xl uppercase ">
 						personal infos
@@ -150,9 +169,10 @@ const About = () => {
 						text2={"Linked in"}
 					/>
 				</section>
-			</section>
+			</motion.section>
 
 			{/* ******************************** skils ********************************** */}
+			
 
 			<section className="text-center">
 				<div className="h-0.5 w-1/4 bg-[#252525] m-auto my-16"></div>
