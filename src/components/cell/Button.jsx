@@ -1,9 +1,7 @@
 /* eslint-disable react/display-name */
 // /* eslint-disable react/display-name */
-import { button } from "@material-tailwind/react";
 import PropTypes from "prop-types";
 import React from "react";
-import { types } from "sass";
 
 const Button = React.forwardRef(({children ,onClick ,className ,type ,disabled = false ,loading = false ,...rest}, ref) => {
    const handleClick = (event)=>{
@@ -17,7 +15,7 @@ const Button = React.forwardRef(({children ,onClick ,className ,type ,disabled =
    }
 
    return (
-      <button ref={ref} type={type} onClick={handleClick} className={className} disabled={disabled || loading} {...rest} >
+      <button ref={ref} type={type} onClick={handleClick} className={className} disabled={disabled || loading} {...rest}>
          {loading ? <span>loading!</span> : children}
       </button>
    )

@@ -2,6 +2,7 @@
 import Button from "@/components/cell/Button";
 import Input from "@/components/cell/Input";
 import PageTitle from "@/components/PageTitle";
+import { DevTool } from "@hookform/devtools";
 import Link from "next/link";
 
 import React, { forwardRef, useEffect, useState, useRef } from "react";
@@ -34,29 +35,6 @@ const Contact = forwardRef(
 	
 		}, [isDark]);
 
-		const handleClick = ()=>{
-			setLoading(true)
-			setTimeout(()=>{
-				setLoading(false)
-			} , 2000)
-		}
-
-		// const handleChange = (e) => {
-		// 	setInputValue(e.target.value);
-		// 	if (e.target.value.length < 3) {
-		// 	  setError('Input must be at least 3 characters');
-		// 	} else {
-		// 	  setError('');
-		// 	}
-		//  };
-
-		const [formData , setFormData] = useState({
-			userName:"",
-			userEmail:"",
-			subject:"",
-			message:""
-		})
-
 		const {register, reset ,control , handleSubmit , formState:{errors , isSubmitSuccessful , isDirty , isValid} } = useForm({mode:"onBlur"})
 
 		useEffect(()=>{
@@ -66,8 +44,12 @@ const Contact = forwardRef(
 			}
 		},[isSubmitSuccessful])
 
-		const submit = (e)=>{
-			console.log("sssss");
+		const submitter = (e)=>{
+			console.log(e);
+			setLoading(true)
+			setTimeout(()=>{
+				setLoading(false)
+			} , 2000)
 		}
 	
 		return (
@@ -144,66 +126,71 @@ const Contact = forwardRef(
 						</div>
 					</article>
 
-					<form noValidate onSubmit={handleSubmit(submit)}  className="basis-4/6 flex flex-col gap-5 ">
+					<form  onSubmit={handleSubmit((e)=> submitter(e))}  className="basis-4/6 flex flex-col gap-5 ">
 						<div className="flex justify-between items-center ">
 							<Input
+								placeholder={"Enter name"}
+								error={errors.username?.message}
 								{...register("username", {
-									required: true,
+									required: "this field is necessary",
+									minLength:{value:3 , message:"must be at least 3 character"},
 									maxLength: 30,
-								})}
-								ref={inputRef}
-								// onChange={handleChange}
-								error={errors.username && "required"}
-								// value={inputValue}
-								placeholder={"your name"}
-								type={"text"}
-								className={`bg-gray-300 border border-transparent rounded-full px-2 p-1 focus:border-[var(--primary-color)] outline-none  bg-opacity-40`}
+								})}		
 							/>
+
 							<Input
+								type={"email"}
+								placeholder={"Enter email"}
+								error={errors.email?.message}
 								{...register("email" , {
+									required:"Email is required",
 									pattern:{
 										value:/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
 										message:"invalid format!"
 									}
 								})}
-								ref={inputRef}
-								// onChange={handleChange}
-								error={errors.email && errors.email?.message}
-								// value={inputValue}
-								placeholder={"your email"}
-								type={"email"}
-								className={`bg-gray-300 border border-transparent rounded-full px-2 p-1 focus:border-[var(--primary-color)] outline-none  bg-opacity-40`}
 							/>
+
+
 							<Input
+								placeholder={"Enter subject"}
+								error={errors.subject?.message}
 								{...register("subject", {
-									required: true,
+									required: "subject is required",
+									minLength:{value:3 , message:"must be at least 3 character"},
 									maxLength: 50,
 								})}
-								ref={inputRef}
-								// onChange={handleChange}
-								// error={error}
-								// value={inputValue}
-								placeholder={"your subject"}
-								type={"text"}
-								className={`bg-gray-300 border border-transparent rounded-full px-2 p-1 focus:border-[var(--primary-color)] outline-none  bg-opacity-40`}
 							/>
 						</div>
-						<textarea
-							rows={12}
-							name=""
-							id=""
-							className={`bg-gray-300 border border-transparent rounded-3xl px-2 p-1 focus:border-[var(--primary-color)] outline-none  bg-opacity-40`}
-						></textarea>
+
+						<div className="flex flex-col justify-start">
+							<textarea
+								{...register("body",{
+									required:"message is required",
+									minLength:{value:3 , message:"Enter your message"}
+								})}
+								rows={12}
+								name="body"
+								id=""
+								className={`bg-gray-300 border border-transparent rounded-3xl px-2 p-1 focus:border-[var(--primary-color)] outline-none  bg-opacity-40`}
+							></textarea>
+							{errors.body && (
+								<span className={`text-[var(--primary-color)] text-xs pl-2 `} >{errors.body?.message}</span>
+							)}
+						</div>
+
 
 						<Button
 							type={"submit"}
+							// onClick={submitter}
 							loading={loading}
-							disabled={!isDirty || !isValid}
+							// disabled={!isDirty || !isValid}
 							className={`bg-gray-300 border border-transparent rounded-full px-5 p-1 focus:border-[var(--primary-color)] hover:bg-[var(--primary-color)] transition-all duration-75 outline-none  bg-opacity-40 self-end`}
 						>
 							{loading ? "loading..." : "send"}
 						</Button>
 					</form>
+					<DevTool control={control} />
 				</section>
 			</section>
 		);
