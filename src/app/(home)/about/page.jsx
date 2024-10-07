@@ -12,7 +12,6 @@ import { CiRedo } from "react-icons/ci";
 import { motion } from "framer-motion";
 import MotionScroll from "@/components/cell/MotionScroll";
 
-
 // const fetchData = async ()=>{
 // 	try {
 // 		const res = await fetch('http://localhost:8000/api/author/list',{
