@@ -2,7 +2,7 @@
 import AboutMeCart from "@/components/AboutMeCart";
 import PageTitle from "@/components/PageTitle";
 import PrimaryLink from "@/components/PrimaryLink";
-import { useState } from "react";
+import React, { useState } from "react";
 import { CiImport } from "react-icons/ci";
 import NetworkChart from "@/components/NetworkCart";
 import RadialChart from "@/components/RadialChart";
@@ -13,25 +13,25 @@ import { CiRedo } from "react-icons/ci";
 import { motion } from "framer-motion";
 import MotionScroll from "@/components/cell/MotionScroll";
 
-const fetchData = async ()=>{
-	try {
-		const res = await fetch('http://localhost:8000/api/author/list',{
-			method: 'GET',
-			headers: {
-				'Content-Type': 'application/json', // Ensure the correct content type
-			}
-		})
-		if (!res.ok) {
-			throw new Error(`HTTP error! status: ${res.status}`);
-		}
-		const personalInfo  = await res.json()
-		console.log("❤" , personalInfo);
-		return personalInfo
-	} catch (error) {
-		console.log(error);
-		return(error)
-	}
-}
+// const fetchData = async ()=>{
+// 	try {
+// 		const res = await fetch('http://localhost:8000/api/author/list',{
+// 			method: 'GET',
+// 			headers: {
+// 				'Content-Type': 'application/json', // Ensure the correct content type
+// 			}
+// 		})
+// 		if (!res.ok) {
+// 			throw new Error(`HTTP error! status: ${res.status}`);
+// 		}
+// 		const personalInfo  = await res.json()
+// 		console.log("❤" , personalInfo);
+// 		return personalInfo
+// 	} catch (error) {
+// 		console.log(error);
+// 		return(error)
+// 	}
+// }
 
 export const staggerContainer = (staggerChildren, delayChildren) => {
 	return {
@@ -45,12 +45,77 @@ export const staggerContainer = (staggerChildren, delayChildren) => {
 	};
 };
 
+const fadeIn = (direction, type, delay, duration) => {
+	return {
+		hidden: {
+			x: direction === "left" ? 200 : direction === "right" ? -200 : 0,
+			// y: direction === "up" ? 200 : direction === "down" ? -200 : 0,
+			opacity: 0,
+		},
+		show: {
+			x: 0,
+			y: 0,
+			opacity: 1,
+			transition: {
+				type: type,
+				delay: delay,
+				duration: duration,
+				ease: "easeOut",
+			},
+		},
+	};
+};
+
+const radialChartFakeDate = [
+	{
+		id: 1,
+		skill: "javaScript",
+		value: 60,
+	},
+	{
+		id: 2,
+		skill: "react.js",
+		value: 70,
+	},
+	{
+		id: 3,
+		skill: "next.js",
+		value: 30,
+	},
+	{
+		id: 4,
+		skill: "css",
+		value: 70,
+	},
+	{
+		id: 5,
+		skill: "html",
+		value: 80,
+	},
+	{
+		id: 6,
+		skill: "typeScript",
+		value: 50,
+	},
+	{
+		id: 7,
+		skill: "python",
+		value: 40,
+	},
+	{
+		id: 8,
+		skill: "tailwind",
+		value: 90,
+	},
+];
+
+
 
 
 const About = () => {
 	const [isRadialChart, setIsRadialChart] = useState(true)
 
-	const data = fetchData()
+	// const data = fetchData()
 	
 	return (
 		<section className="h-screen relative flex flex-col gap-32 justify-start bg-transparent overflow-x-hidden no-scrollbar">
@@ -194,46 +259,21 @@ const About = () => {
 					</button>
 					{isRadialChart ? (
 						<section className=" w-8/12 grid grid-cols-4 grid-rows-2 mb-28">
-							<RadialChart
-								chartColor={'var(--primary-color)'}
-								value={60}
-								skill={"javaScript"}
-							/>
-							<RadialChart
-								chartColor={'var(--primary-color)'}
-								value={70}
-								skill={"react.js"}
-							/>
-							<RadialChart
-								chartColor={'var(--primary-color)'}
-								value={30}
-								skill={"next.js"}
-							/>
-							<RadialChart
-								chartColor={'var(--primary-color)'}
-								value={70}
-								skill={"css"}
-							/>
-							<RadialChart
-								chartColor={'var(--primary-color)'}
-								value={80}
-								skill={"html"}
-							/>
-							<RadialChart
-								chartColor={'var(--primary-color)'}
-								value={50}
-								skill={"typeScript"}
-							/>
-							<RadialChart
-								chartColor={'var(--primary-color)'}
-								value={40}
-								skill={"python"}
-							/>
-							<RadialChart
-								chartColor={'var(--primary-color)'}
-								value={80}
-								skill={"tailwind"}
-							/>
+							{radialChartFakeDate.map((chart , index)=>(
+									<motion.div
+										key={chart.id}
+										initial="hidden"
+										whileInView="show"
+										// animate="show"s 
+										viewport={{ once: true, amount: 0.25 }}
+										variants={fadeIn("right", "spring", 0.5 * index, 0.5)}>
+										<RadialChart 
+											chartColor={'var(--primary-color)'}
+											value={chart.value}
+											skill={chart.skill}
+										/>
+									</motion.div>
+							))}
 						</section>
 					) : (
 						<div className=" w-8/12 bg-transparent border-none mb-28" >

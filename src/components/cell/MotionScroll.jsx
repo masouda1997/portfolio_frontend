@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 
 const MotionScroll = ({id , scrollDelay}) => {
-   const handleScroll = (e) => {
+   const handleClick = (e) => {
 		e.preventDefault();
 		const target = document.getElementById(id);
       console.log(target);
@@ -23,7 +23,7 @@ const MotionScroll = ({id , scrollDelay}) => {
 	};
 	return (
 		<div className="absolute xs:bottom-0 bottom-0 w-full flex justify-center items-center ">
-			<a href={`#${id}`} onClick={handleScroll} >
+			<a href={`#${id}`} onClick={handleClick} >
 				<div className="w-[30px] h-[50px] rounded-3xl border-[1px] border-[var(--primary-color)] flex justify-center items-start ">
 					<motion.dev
 						animate={{
