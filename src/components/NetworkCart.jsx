@@ -6,30 +6,33 @@ import networkgraph from "highcharts/modules/networkgraph";
 // Initialize the networkgraph module
 networkgraph(Highcharts);
 
+
+const networkData = [
+	{ from: "skills", to: "JS" },
+	{ from: "skills", to: "HTML" },
+	{ from: "skills", to: "css" },
+	{ from: "skills", to: "SQL" },
+	{ from: "skills", to: "Python" },
+	{ from: "skills", to: "Git" },
+
+	{ from: "css", to: "sass" },
+	{ from: "css", to: "tailwind" },
+	{ from: "css", to: "bootstrap" },
+	{ from: "css", to: "css module" },
+
+	{ from: "JS", to: "react" },
+	{ from: "JS", to: "ts" },
+	{ from: "JS", to: "redux" },
+	{ from: "JS", to: "node" },
+
+	{ from: "react", to: "next" },
+
+	{ from:"node", to: "express"}
+		
+];
+
 function NetworkChart({ nodeColor }) {
-	const networkData = [
-		{ from: "skills", to: "JS" },
-		{ from: "skills", to: "HTML" },
-		{ from: "skills", to: "css" },
-		{ from: "skills", to: "SQL" },
-		{ from: "skills", to: "Python" },
-		{ from: "skills", to: "Git" },
-
-		{ from: "css", to: "sass" },
-		{ from: "css", to: "tailwind" },
-		{ from: "css", to: "bootstrap" },
-		{ from: "css", to: "css module" },
-
-		{ from: "JS", to: "react" },
-		{ from: "JS", to: "ts" },
-		{ from: "JS", to: "redux" },
-		{ from: "JS", to: "node" },
-
-		{ from: "react", to: "next" },
-
-		{ from:"node", to: "express"}
-		   
-	];
+	
 
 	const chartOptions = {
 		chart: {
@@ -39,7 +42,7 @@ function NetworkChart({ nodeColor }) {
 			spacingTop: 10,
 			spacingLeft: 0,
 			spacingRight: 0,
-			width: 900,
+			// width: 900,
 			height: null,
 			backgroundColor: null,
 			plotBorderWidth: 0,
@@ -216,9 +219,7 @@ function NetworkChart({ nodeColor }) {
 
 	
 	return (
-		<div style={{ backgroundColor: "transparent", border: "none" }}>
-			<HighchartsReact highcharts={Highcharts} options={chartOptions} />
-		</div>
+		<HighchartsReact highcharts={Highcharts} options={chartOptions} />
 	);
 }
 

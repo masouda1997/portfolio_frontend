@@ -11,6 +11,7 @@ import XPcards from "@/components/XPcards";
 import { FaBriefcase } from "react-icons/fa";
 import { CiRedo } from "react-icons/ci";
 import { motion } from "framer-motion";
+import MotionScroll from "@/components/cell/MotionScroll";
 
 const fetchData = async ()=>{
 	try {
@@ -52,7 +53,7 @@ const About = () => {
 	const data = fetchData()
 	
 	return (
-		<section className="h-screen relative flex flex-col justify-start bg-transparent overflow-x-hidden no-scrollbar">
+		<section className="h-screen relative flex flex-col gap-32 justify-start bg-transparent overflow-x-hidden no-scrollbar">
 			<PageTitle
 				primaryColor={'var(--primary-color)'}
 				mainText={"about"}
@@ -60,12 +61,12 @@ const About = () => {
 				colorText={"me"}
 			/>
 
-			<motion.section
-				variants={staggerContainer()}
-				initial="hidden"
-				whileInView="show"
-				viewport={{ once: true, amount: 0.25 }} 
-				className="flex justify-center gap-28  ">
+			<section
+				// variants={staggerContainer()}
+				// initial="hidden"
+				// whileInView="show"
+				// viewport={{ once: true, amount: 0.25 }} 
+				className="flex justify-center gap-16  ">
 
 				<article className="flex flex-col justify-between gap-14">
 					<h2 className="tracking-tight text-3xl uppercase ">
@@ -157,7 +158,11 @@ const About = () => {
 						text1={"years of"}
 						text2={"experience"}
 					/>
-					<AboutMeCart number={6} text1={"completed"} text2={"project"} />
+					<AboutMeCart 
+						number={6} 
+						text1={"completed"} 
+						text2={"project"} 
+					/>
 					<AboutMeCart
 						number={400}
 						text1={"hours"}
@@ -169,17 +174,18 @@ const About = () => {
 						text2={"Linked in"}
 					/>
 				</section>
-			</motion.section>
+				<MotionScroll id={"skills"} scrollDelay={500}/>
+			</section>
 
 			{/* ******************************** skils ********************************** */}
 			
 
-			<section className="text-center">
-				<div className="h-0.5 w-1/4 bg-[#252525] m-auto my-16"></div>
-				<h2 className="uppercase tracking-tight font font-extrabold text-3xl">
+			<section  className="text-center  ">
+				<div id="skills" className="h-0.5 w-1/4 bg-[#252525] m-auto my-32 "></div>
+				<h2  className="uppercase tracking-tight font font-extrabold text-3xl pb-10">
 					my skills
 				</h2>
-				<section className="flex justify-center relative ">
+				<section className="flex  justify-center relative ">
 					<button
 						className="absolute top-0 left-0 z-50 p-3 rounded-r-md bg-secondary"
 						onClick={() => setIsRadialChart(!isRadialChart)}
@@ -187,7 +193,7 @@ const About = () => {
 						<CiRedo className="animate-orbit text-[var(--primary-color)] text-xl" />
 					</button>
 					{isRadialChart ? (
-						<section className=" w-8/12 grid grid-cols-4 grid-rows-2">
+						<section className=" w-8/12 grid grid-cols-4 grid-rows-2 mb-28">
 							<RadialChart
 								chartColor={'var(--primary-color)'}
 								value={60}
@@ -230,13 +236,20 @@ const About = () => {
 							/>
 						</section>
 					) : (
-						<NetworkChart nodeColor={'var(--primary-color)'} />
+						<div className=" w-8/12 bg-transparent border-none mb-28" >
+							<NetworkChart nodeColor={'var(--primary-color)'} />
+						</div>
 					)}
+					
+				<MotionScroll id={"experience"} scrollDelay={500} />
 				</section>
 			</section>
 
-			<section className="text-center">
-				<div className="h-0.5 w-1/4 bg-[#252525] m-auto my-16"></div>
+		{/* ************************** experience & education **************************** */}
+
+
+			<section className="text-center  mb-40">
+				<div id="experience" className="h-0.5 w-1/4 bg-[#252525] m-auto mb-32 "></div>
 				<h2 className="uppercase tracking-tight font font-extrabold text-3xl">
 					experience & education
 				</h2>
