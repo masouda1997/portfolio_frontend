@@ -6,12 +6,12 @@ import React, { useState } from "react";
 import { CiImport } from "react-icons/ci";
 import NetworkChart from "@/components/NetworkCart";
 import RadialChart from "@/components/RadialChart";
-import { FaGraduationCap } from "react-icons/fa";
 import XPcards from "@/components/XPcards";
 import { FaBriefcase } from "react-icons/fa";
 import { CiRedo } from "react-icons/ci";
 import { motion } from "framer-motion";
 import MotionScroll from "@/components/cell/MotionScroll";
+
 
 // const fetchData = async ()=>{
 // 	try {
@@ -33,17 +33,6 @@ import MotionScroll from "@/components/cell/MotionScroll";
 // 	}
 // }
 
-export const staggerContainer = (staggerChildren, delayChildren) => {
-	return {
-		hidden: {},
-		show: {
-			transition: {
-				staggerChildren: staggerChildren,
-				delayChildren: delayChildren || 0,
-			},
-		},
-	};
-};
 
 const fadeIn = (direction, type, delay, duration) => {
 	return {
@@ -109,6 +98,27 @@ const radialChartFakeDate = [
 	},
 ];
 
+const xpCardFakeData = [
+	{
+	  title: "front-end developer",
+	  tag: "2023-present",
+	  text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto, fuga!",
+	  company: "entekhab group"
+	},
+	{
+	  title: "bachelor degree",
+	  tag: "2015-2019",
+	  text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto, fuga!",
+	  company: "quchan university of technology"
+	},
+	{
+	  title: "Reactjs coding bootcamp",
+	  tag: "2022",
+	  text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto, fuga!",
+	  company: "maktab sharif"
+	}
+ ]
+
 
 
 
@@ -127,11 +137,7 @@ const About = () => {
 			/>
 
 			<section
-				// variants={staggerContainer()}
-				// initial="hidden"
-				// whileInView="show"
-				// viewport={{ once: true, amount: 0.25 }} 
-				className="flex justify-center gap-16  ">
+				className="flex justify-center gap-16 ">
 
 				<article className="flex flex-col justify-between gap-14">
 					<h2 className="tracking-tight text-3xl uppercase ">
@@ -234,17 +240,17 @@ const About = () => {
 						text2={"skills learn"}
 					/>
 					<AboutMeCart
-						number={"500"}
+						number={500}
 						text1={"connection"}
 						text2={"Linked in"}
 					/>
 				</section>
+
 				<MotionScroll id={"skills"} scrollDelay={500}/>
 			</section>
 
 			{/* ******************************** skils ********************************** */}
 			
-
 			<section  className="text-center  ">
 				<div id="skills" className="h-0.5 w-1/4 bg-[#252525] m-auto my-32 "></div>
 				<h2  className="uppercase tracking-tight font font-extrabold text-3xl pb-10">
@@ -285,46 +291,32 @@ const About = () => {
 				</section>
 			</section>
 
-		{/* ************************** experience & education **************************** */}
+			{/* *********************** experience & education ************************** */}
 
 
 			<section className="text-center  mb-40">
 				<div id="experience" className="h-0.5 w-1/4 bg-[#252525] m-auto mb-32 "></div>
-				<h2 className="uppercase tracking-tight font font-extrabold text-3xl">
+				<h2 className="uppercase tracking-tight font font-extrabold text-3xl pb-32">
 					experience & education
 				</h2>
 				<section className="flex justify-center relative mt-10">
 					<section className="w-6/12 grid grid-cols-2 grid-rows-2 gap-10 relative">
-						<XPcards
-							title={"front-end developer"}
-							tag={"2023-present"}
-							text={
-								"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto, fuga!"
-							}
-							icon={<FaBriefcase className="w-10" />}
-							color={'var(--primary-color)'}
-							company={"entekhab group"}
-						/>
-						<XPcards
-							title={"bachelor degree"}
-							tag={"2015-2019"}
-							text={
-								"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto, fuga!"
-							}
-							icon={<FaGraduationCap className="w-10" />}
-							color={'var(--primary-color)'}
-							company={"quchan university of technology"}
-						/>
-						<XPcards
-							title={"Reactjs coding bootcamp"}
-							tag={"2022"}
-							text={
-								"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto, fuga!"
-							}
-							icon={<FaGraduationCap className="w-10" />}
-							color={'var(--primary-color)'}
-							company={"maktab sharif"}
-						/>
+					{/* <section className=""> */}
+					{/* <VerticalTimeline> */}
+
+						{xpCardFakeData.map((cart)=>(
+								<XPcards 
+								key={cart.id}
+								title={cart.title}
+								tag={cart.tag}
+								text={cart.text}
+								icon={<FaBriefcase className="w-10" />}
+								color={'var(--primary-color)'}
+								company={cart.company}
+								/>
+						))}
+					{/* </VerticalTimeline> */}
+
 					</section>
 				</section>
 				<div className="w-full h-40"></div>
