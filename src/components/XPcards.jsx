@@ -1,13 +1,16 @@
 import React from "react";
 
-const XPcards = ({key , title , tag, company="",text, icon,color}) => {
+const XPcards = ({ key, title, tag,text, icon, color ,company = "" }) => {
 	return (
-				<div key={key} className="relative border-l-2 px-10 flex flex-col justify-betweens gap-3 items-start text-left ">
+		<div
+			key={key}
+			className="relative border-l-2 px-10 flex flex-col justify-betweens gap-3 items-start text-left "
+		>
 			<span
 				style={{ backgroundColor: `${color}` }}
 				className="w-12 h-12 rounded-full flex justify-center items-center absolute -top-4 -left-6  "
 			>
-		      {icon}
+				{icon}
 			</span>
 			<span className="rounded-full bg-secondary bg-opacity-40 px-1 text-sm">
 				{tag}
@@ -18,32 +21,6 @@ const XPcards = ({key , title , tag, company="",text, icon,color}) => {
 			</h3>
 			<p>{text}</p>
 		</div>
-		// <Timeline key={key} position="alternate">
-		// 	<TimelineItem>
-		// 		<TimelineOppositeContent
-		// 			sx={{ m: "auto 0" }}
-		// 			align="right"
-		// 			variant="body2"
-		// 			color={color}
-		// 		>
-		// 			{tag}
-		// 		</TimelineOppositeContent>
-		// 		<TimelineSeparator>
-		// 			<TimelineConnector />
-		// 			<TimelineDot>{icon}</TimelineDot>
-		// 			<TimelineConnector />
-		// 		</TimelineSeparator>
-		// 		<TimelineContent sx={{ py: '12px', px: 2 }}>
-		// 			<Typography variant="h6" component="span">
-		// 				{title}
-		// 			</Typography>
-		// 			<Typography>{company}</Typography>
-		// 			<Typography>{text}</Typography>
-		// 		</TimelineContent>
-		// 	</TimelineItem>
-		// </Timeline>
-		
-
 	);
 };
 
