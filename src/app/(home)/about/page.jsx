@@ -37,7 +37,7 @@ const fadeIn = (direction, type, delay, duration) => {
 	return {
 		hidden: {
 			x: direction === "left" ? 200 : direction === "right" ? -200 : 0,
-			// y: direction === "up" ? 200 : direction === "down" ? -200 : 0,
+			y: direction === "up" ? 200 : direction === "down" ? -200 : 0,
 			opacity: 0,
 		},
 		show: {
@@ -303,9 +303,14 @@ const About = () => {
 					{/* <section className=""> */}
 					{/* <VerticalTimeline> */}
 
-						{xpCardFakeData.map((cart)=>(
+						{xpCardFakeData.map((cart , index)=>(
+							<motion.div 
+							initial="hidden"
+							whileInView="show"
+							viewport={{ once: true, amount: 0.25 }}
+							variants={fadeIn("down", "spring", 0.75 * index, 0.5)}
+							key={cart.id}>
 								<XPcards 
-								key={cart.id}
 								title={cart.title}
 								tag={cart.tag}
 								text={cart.text}
@@ -313,6 +318,7 @@ const About = () => {
 								color={'var(--primary-color)'}
 								company={cart.company}
 								/>
+							</motion.div>
 						))}
 					{/* </VerticalTimeline> */}
 
