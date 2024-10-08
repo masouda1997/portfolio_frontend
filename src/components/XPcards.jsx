@@ -1,6 +1,6 @@
 import React from "react";
 
-const XPcards = ({ key, title, tag,text, icon, color ,company = "" }) => {
+const XPcards = ({ key='', title, tag,text, icon, color ,company = "" }) => {
 	return (
 		<div
 			key={key}

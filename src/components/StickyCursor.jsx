@@ -6,7 +6,7 @@ const StickyCursor = ({stickyElement}) => {
   const [isHovered , setIsHovered] = useState(false)
 
 
-  let cursorSize = isHovered?60: 40 // to centerized div with cursor
+  let cursorSize = isHovered? 50: 25 // to centerized div with cursor
 
 
 	const mouse = {
@@ -19,8 +19,8 @@ const StickyCursor = ({stickyElement}) => {
   }
   
 
-  const smoothOptions = {damping:100  , mass:0.5 , stiffness:500 }
-  const innerSmoothOptions = {damping:50 , mass:0.5 , stiffness:500}
+  const smoothOptions = {damping:100  , mass:0.25 , stiffness:600 }
+  const innerSmoothOptions = {damping:40 , mass:0.2 , stiffness:600}
   
 
   const smoothMouse = {
@@ -39,15 +39,13 @@ const StickyCursor = ({stickyElement}) => {
     if(isHovered){
       mouse.x.set(center.x - cursorSize/2)
       mouse.y.set(center.y - cursorSize/2)
-      innerMouse.x.set(center.x - cursorSize+10)
-      innerMouse.y.set(center.y - cursorSize+10)
+      innerMouse.x.set(center.x - cursorSize+2.4)
+      innerMouse.y.set(center.y - cursorSize+2.4)
     }else{
       mouse.x.set(clientX - cursorSize/2);
       mouse.y.set(clientY - cursorSize/2);
-      innerMouse.x.set(clientX - cursorSize-cursorSize/4)
-      innerMouse.y.set(clientY - cursorSize-cursorSize/4)
-      // innerMouse.x.set(clientX - cursorSize/2);
-      // innerMouse.y.set(clientY - cursorSize/2 )
+      innerMouse.x.set(clientX - cursorSize-cursorSize+2.4)
+      innerMouse.y.set(clientY - cursorSize-cursorSize+2.4)
     }
 
 	};
@@ -78,7 +76,7 @@ const StickyCursor = ({stickyElement}) => {
 					left: smoothMouse.x,
 					pointerEvents: "none",
 				}}
-				className={` w-9 h-9 border border-[var(--primary-color)] fixed rounded-full flex justify-center items-center z-50  `}
+				className={` w-7 h-7 border border-[var(--primary-color)] fixed rounded-full brightness-75 flex justify-center items-center z-50  `}
 				animate={{ width: cursorSize, height: cursorSize }}
 			></motion.div>
 			<motion.div
@@ -87,7 +85,7 @@ const StickyCursor = ({stickyElement}) => {
 					y: innerSmoothMouse.y,
 					pointerEvents: "none",
 				}}
-				className={` absolute top-11 left-11 w-3 h-3 bg-[var(--primary-color)] rounded-full z-50`}
+				className={` absolute top-11 left-11 !w-2 !h-2 bg-[var(--primary-color)] brightness-75 rounded-full z-50`}
 			></motion.div>
 		</>
 	);
