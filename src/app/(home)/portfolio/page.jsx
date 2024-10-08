@@ -106,12 +106,11 @@ const Page = () => {
 						<div
 							key={project.id}
 							onClick={() => handleOpen({ ...project })}
-							className="rounded-md over group relative max-w-[350px] max-h-[250px]  overflow-hidden"
-						>
-							<img src={project.image} className="" alt=" " />
-							<div className="absolute top-0 p-3 opacity-0 group-hover:opacity-80 group-hover:bg-[var(--primary-color)] w-full h-full transition duration-300 ease-in-out flex justify-center items-center">
-								<span>{project.name}</span>
-							</div>
+							className="rounded-md over group relative max-w-[350px] max-h-[250px]  overflow-hidden">
+								<img src={project.image} alt="" />
+								<div className="absolute top-0 p-3 opacity-0 group-hover:opacity-80 group-hover:bg-[var(--primary-color)] w-full h-full transition duration-300 ease-in-out flex justify-center items-center">
+									<span>{project.name}</span>
+								</div>
 						</div>
 					))}
 				</section>

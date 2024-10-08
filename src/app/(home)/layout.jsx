@@ -76,7 +76,9 @@ const Layout = ({children}) => {
 			)}
 
 			<StickyCursor stickyElement={stickyElement} />
-			{isWaveVisible && <div className='wave'></div> } 
+			{isWaveVisible &&<>
+				<div class="diagonal-shape"></div>
+			</>  } 
 				{!isWaveVisible && (
 					<main className="basis-10/12 flex-grow">
 						{" "}

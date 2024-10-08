@@ -6,7 +6,7 @@ const StickyCursor = ({stickyElement}) => {
   const [isHovered , setIsHovered] = useState(false)
 
 
-  let cursorSize = isHovered? 50: 25 // to centerized div with cursor
+  let cursorSize = isHovered? 50: 25 
 
 
 	const mouse = {
@@ -76,7 +76,7 @@ const StickyCursor = ({stickyElement}) => {
 					left: smoothMouse.x,
 					pointerEvents: "none",
 				}}
-				className={` w-7 h-7 border border-[var(--primary-color)] fixed rounded-full brightness-75 flex justify-center items-center z-50  `}
+				className={`!hover:w-11 !hover:h-11  w-7 h-7 border border-[var(--primary-color)] fixed rounded-full brightness-75 flex justify-center items-center z-50  `}
 				animate={{ width: cursorSize, height: cursorSize }}
 			></motion.div>
 			<motion.div
@@ -85,7 +85,7 @@ const StickyCursor = ({stickyElement}) => {
 					y: innerSmoothMouse.y,
 					pointerEvents: "none",
 				}}
-				className={` absolute top-11 left-11 !w-2 !h-2 bg-[var(--primary-color)] brightness-75 rounded-full z-50`}
+				className={` absolute top-11 left-11 w-2 h-2 bg-[var(--primary-color)] brightness-75 rounded-full z-50`}
 			></motion.div>
 		</>
 	);

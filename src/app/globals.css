@@ -81,7 +81,20 @@ body{
   }
 }
 
-/* pre-loader animation */
+/* pre-loader animations */
+@keyframes pageTurn {
+  0%{   
+    transform: translateX(0) rotateY(0deg); /* Starting point */
+    transform-origin: left center; /* Make it turn from the left side */
+    opacity: 1;
+  }
+  100%{
+    transform: translateX(100%) rotateY(-180deg); /* Move and rotate */
+    transform-origin: left center;
+    opacity: 0;
+  }
+}
+
 @keyframes waveExpand {
   0% {
     width: 0;
@@ -92,6 +105,21 @@ body{
     width: 200%;
     height: 200%;
     opacity: 0;
+  }
+}
+
+@keyframes diagonalExpand {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(45deg); /* Start small */
+  }
+  100% {
+    width: 300vw;
+    height: 300vh;
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(45deg); /* Expand fully */
   }
 }
 
@@ -107,4 +135,29 @@ body{
   z-index: 999;
 }
 
+.bookPage{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--primary-color); /* Background color */
+  transform-origin: left center; /* Define the origin for rotation */
+  animation: pageTurn 1s ease-out forwards;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.diagonal-shape {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: var(--primary-color); /* You can use your primary color here */
+  transform: translate(-50%, -50%) rotate(45deg);
+  z-index: 999;
+  pointer-events: none;
+  animation: diagonalExpand 1s ease-out forwards;
+}
 
