@@ -1,8 +1,9 @@
 "use client"
 import '../globals.css'
+import MagneticWrapper from '@/components/PrimaryLink';
 // import { useEffect, useState } from 'react';
 // import ColorSwitcher from '@/components/ColorSwitcher';
-import PrimaryLink from '@/components/PrimaryLink';
+import Link from 'next/link';
 import { GrFormNextLink } from 'react-icons/gr';
 
 
@@ -33,17 +34,19 @@ const Home = () => {
 							corrupti. Deserunt illo nisi incidunt aperiam!
 						</p>
 						<br />
-						<PrimaryLink
-							href={"/"}
-							text={"More About Me"}
-							color={'var(--primary-color)'}
-							icon={
+						<MagneticWrapper>
+							<Link
+								href={'/about'}
+								style={{ border: `${'var(--primary-color)'} 1px solid` }}
+								className={` uppercase inline-flex gap-2 items-center  rounded-full pl-6 text-xs loading-bar font-bold`}
+							>
+								{'More About Me'}
 								<GrFormNextLink
 									style={{ backgroundColor: `var(--primary-color)` }}
 									className="inline w-12 h-12 p-2 rounded-full"
 								/>
-							}
-						/>
+							</Link> 
+						</MagneticWrapper>						
 					</div>
 				</div>
 				{/* <ColorSwitcher color={primaryColor} /> */}
