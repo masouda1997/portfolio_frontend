@@ -17,19 +17,19 @@ export const graphNetworkData = [
 	{ from: "skills", to: "SQL" },
 	{ from: "skills", to: "Python" },
 	{ from: "skills", to: "Git" },
-
 	{ from: "css", to: "sass" },
 	{ from: "css", to: "tailwind" },
 	{ from: "css", to: "bootstrap" },
 	{ from: "css", to: "css module" },
-
 	{ from: "JS", to: "react" },
 	{ from: "JS", to: "ts" },
 	{ from: "JS", to: "redux" },
 	{ from: "JS", to: "node" },
-
 	{ from: "react", to: "next" },
+	{ from: "node", to: "express"}
+]; 
 
-	{ from:"node", to: "express"}
-		
-];
+export const flipLinkCte = { 
+	duration: 0.25, //total animation duration
+	stagger: 0.045  //time between each letter animation happen
+};
