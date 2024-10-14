@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 
-const FloatingCard= ({ key , containerRef , src , alt , top , left , rotate , className})=>{
+const FloatingCard= ({ key , containerRef , src , alt , top , left , rotate , className ,text})=>{
 
    const [zIndex, setZIndex] = useState(0);
 
