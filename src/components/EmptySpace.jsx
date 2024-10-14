@@ -1,8 +1,6 @@
-import React, { useRef, useState } from "react";
-import { motion } from "framer-motion";
-import { twMerge } from "tailwind-merge";
+import React, { useRef } from "react";
 import FloatingCard from "./cell/FloatingCard";
-import { Card } from "@material-tailwind/react";
+
 
 const cartInfo = [
 	{
@@ -60,11 +58,11 @@ const EmptySpace = () => {
   const containerRef = useRef(null);
 
   return (
-   <section className="relative grid min-h-screen w-full place-content-center overflow-hidden bg-neutral-950">
-      <h2 className="uppercase  relative z-0 text-[20vw] font-black md:text-[200px] text-[#262626] ">no gravity</h2>
-      <div>
+   <section className="relative grid h-[32rem] w-full place-content-center overflow-hidden bg-neutral-950">
+      <h2 className="uppercase  relative z-0 text-[20vw] font-black md:text-[200px] text-[#767676] ">no gravity</h2>
+      <div className="absolute inset-0 z-10" ref={containerRef}>
 			{cartInfo.map((card, index) => (
-            <Card
+            <FloatingCard
                key={index}
                containerRef={containerRef}
                src={card.src}
@@ -73,7 +71,9 @@ const EmptySpace = () => {
                top={card.top}
                left={card.left}
                className={card.className}
-            />))
+            />
+				// <div>{card.className} , {card.rotate}</div>
+			))
             }
 		</div>
    </section>
