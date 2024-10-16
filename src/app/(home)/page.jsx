@@ -1,8 +1,7 @@
 "use client"
+import FlipLink from '@/components/FlipLink';
 import '../globals.css'
 import MagneticWrapper from '@/components/PrimaryLink';
-// import { useEffect, useState } from 'react';
-// import ColorSwitcher from '@/components/ColorSwitcher';
 import Link from 'next/link';
 import { GrFormNextLink } from 'react-icons/gr';
 
@@ -20,14 +19,16 @@ const Home = () => {
 					<img src="#" alt=" " />
 				</figure>
 				<div className="flex justify-center items-center h-[100%] basis-4/6 relative">
-					<div className=" h-max p-1 w-[40rem]">
+					<div className=" h-max  w-[50rem]">
 						<h1 className="uppercase flex flex-col font-bold text-[3rem]">
-							{'Im Masoud Anaraki.'}
-							<span style={{ color: `var(--primary-color)` }}>
-								{'Front-end developer'}
-							</span>
+							<div className="py-4">
+								<FlipLink text={'Im Masoud Anaraki'}/>
+							</div>
+						
+							
+							<FlipLink text={'front-end developer'} color={'var(--primary-color)'}/>
 						</h1>
-						<p>
+						<p className="px-4 mt-4">
 							Lorem ipsum dolor sit amet consectetur, adipisicing elit.
 							Odit quos sapiente ut, delectus iusto fugit dolorem,
 							voluptates laborum nam velit doloribus adipisci. Quae, illo

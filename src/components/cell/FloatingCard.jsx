@@ -25,7 +25,7 @@ const FloatingCard= ({ key , containerRef , src , alt , top , left , rotate , cl
 			key={key}
          onMouseDown={updateZIndex}
          style={{top , left , rotate , zIndex}}
-         className={twMerge("drag-elements absolute w-84 , bg-blue-gray-200  p-1 pb-4" , className)}
+         className={twMerge("drag-elements absolute !w-72 , bg-blue-gray-200  p-1 pb-4" , className)}
          src={src}
          alt={alt}
          drag
