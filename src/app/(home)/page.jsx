@@ -19,16 +19,14 @@ const Home = () => {
 					<img src="#" alt=" " />
 				</figure>
 				<div className="flex justify-center items-center h-[100%] basis-4/6 relative">
-					<div className=" h-max  w-[50rem]">
-						<h1 className="uppercase flex flex-col font-bold text-[3rem]">
-							<div className="py-4">
+					<div className=" h-max  w-[60rem]">
+						<h1 className="uppercase flex flex-col  font-[800] text-[3rem]">
+							<div className="py-4 ">
 								<FlipLink text={'Im Masoud Anaraki'}/>
-							</div>
-						
-							
+							</div>				
 							<FlipLink text={'front-end developer'} color={'var(--primary-color)'}/>
 						</h1>
-						<p className="px-4 mt-4">
+						<p className="px-4 mt-4 ">
 							Lorem ipsum dolor sit amet consectetur, adipisicing elit.
 							Odit quos sapiente ut, delectus iusto fugit dolorem,
 							voluptates laborum nam velit doloribus adipisci. Quae, illo
