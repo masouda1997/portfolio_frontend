@@ -17,34 +17,3 @@ const PageTitle = ({ primaryColor, mainText, shadowText, colorText }) => {
 };
 
 export default PageTitle;
-
-{/* <motion.span 
-			style={{ color: `${primaryColor}`,lineHeight: 0.80, }} 
-			className="relative  block gap-0 overflow-hidden whitespace-nowrap "
-			initial="initial"
-			whileHover="hovered"
-			>
-				<div className="absolute ">
-					{colorText.split("").map((letter,index)=>(
-						<motion.span key={index} className="inline-block" variants={{initial:{y:0} , hovered:{y:"-100%"}}} transition={{duration:DURATION , ease:"easeInOut" delay:STAGGER*index }}>
-							&nbsp;{letter.toUpperCase()}
-						</motion.span>
-					))}
-				</div>
-				<div className="">
-					{colorText.split("").map((letter,index)=>(
-						<motion.span key={index} className="inline-block" variants={{initial:{y:"100%"} , hovered:{y:0}}} transition={{duration:DURATION , ease:"easeInOut" delay:STAGGER*index }} >
-							&nbsp;{letter.toUpperCase()}
-						</motion.span>
-					))}
-				</div>
-		</motion.span> */}
-
-
-
-{/* <span className="absolute !opacity-100 z-40 tracking-tight font-[900] text-[56px] top-10 ">
-	{mainText.toUpperCase()}
-	<span style={{ color: `${primaryColor}` }} className="opacity-100">
-		&nbsp; {colorText.toUpperCase()}
-	</span>
-</span>; */}
